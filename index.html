@@ -28,7 +28,10 @@
 .cmp{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 14px}
 .cb{background:var(--cd);border:1px solid var(--rl);border-radius:4px;padding:12px 13px;border-top:3px solid var(--rl)}
 .cb .ch{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--i3);margin-bottom:6px}
-.cb .cv{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700}.cb .cd{font-size:11px;color:var(--i2);margin-top:2px}
+.cb .cv{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700}
+.cb .cv.money{font-size:17px}
+.cb .cfull{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--i3);margin-top:1px;letter-spacing:-.01em}
+.cb .cusd{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#A0AEC0;letter-spacing:-.01em}.cb .cd{font-size:11px;color:var(--i2);margin-top:2px}
 .cb table{width:100%;font-size:10.5px;border-collapse:collapse;margin-top:6px}.cb td{padding:2px 0;border-bottom:1px solid #F1F5F9}.cb td:last-child{font-family:'IBM Plex Mono',monospace;text-align:right;font-weight:500}
 .obs{counter-reset:obs;padding:0;margin:0}.obs li{counter-increment:obs;list-style:none;padding:7px 0;border-bottom:1px solid #F1F5F9;font-size:12.5px;display:flex;gap:9px}
 .obs li::before{content:counter(obs);font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:var(--nv);background:#F1F5F9;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -71,76 +74,73 @@ details summary{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight
 .snav li a:hover,.snav li a.active{color:var(--nv);border-bottom-color:var(--nv)}
 .snav li:first-child a{font-weight:600;color:var(--nv)}
 
-[id^="sec-"]{scroll-margin-top:90px}
+[id^="sec-"]{scroll-margin-top:104px}
+
+/* Section number chips + chapter rules */
+.sh{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.sh .num{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;color:#fff;background:var(--nv);border-radius:2px;padding:2px 5px;letter-spacing:.04em;flex-shrink:0}
+.chap{display:flex;align-items:center;gap:10px;margin:34px 0 14px}
+.chap:first-of-type{margin-top:8px}
+.chap .cl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--i3);white-space:nowrap}
+.chap .cr{flex:1;height:1px;background:var(--rl)}
+
+/* Unified nav */
+.snav ul{gap:0;padding:0;flex-wrap:nowrap}
+.snav li{flex:0 0 auto}
+.snav li.gd{border-left:1px solid var(--rl)}
+.snav li a{padding:9px 8px;font-size:10px;display:flex;align-items:baseline;gap:4px;letter-spacing:-.01em}
+.snav li a i{font-style:normal;font-weight:700;color:#A0AEC0;font-size:9px}
+.snav li a:hover i,.snav li a.active i{color:var(--nv)}
+.snav li:first-child a{font-weight:400;color:var(--i3)}
+@media(max-width:1150px){.snav li a{padding:9px 6px;font-size:9.5px}}
+
+/* Definitions section */
+.defsec{background:var(--cd);border:1px solid var(--rl);border-radius:4px;padding:0;overflow:hidden}
+.defblk{border-bottom:1px solid var(--rl);padding:14px 18px}
+.defblk:last-child{border-bottom:none}
+.defblk>h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--nv);font-weight:700;margin-bottom:3px}
+.defblk>p.dh{font-size:11.5px;color:var(--i2);margin-bottom:9px;line-height:1.5}
+table.dt{width:100%;border-collapse:collapse;font-size:11.5px}
+table.dt th{background:#F1F5F9;border-bottom:2px solid var(--rl);padding:5px 8px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--i3);font-weight:500;text-align:left}
+table.dt td{padding:5px 8px;border-bottom:1px solid #F1F5F9;vertical-align:top;line-height:1.45}
+table.dt td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+table.dt tr:last-child td{border-bottom:none}
+table.dt code,.defblk code{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#F1F5F9;padding:1px 4px;border-radius:2px;color:var(--nv);white-space:nowrap}
+table.dt td.warn{color:var(--red);font-weight:600}
+.dnote{font-size:11px;color:var(--i2);margin-top:8px;padding-left:10px;border-left:2px solid var(--rl);line-height:1.5}
+.flagrow{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;font-size:11.5px;line-height:1.5}
+.flagrow .fid{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 6px;border-radius:2px;height:fit-content;white-space:nowrap}
+.fid.f-red{background:#FEF2F2;color:var(--red);border:1px solid #FECACA}
+.fid.f-amb{background:#FFFBEB;color:var(--amb);border:1px solid #FDE68A}
+.fid.f-gry{background:#F1F5F9;color:var(--i3);border:1px solid var(--rl)}
+@media(max-width:760px){table.dt td:first-child{white-space:normal}}
 </style></head><body>
 <div class="hd"><div class="w"><div><h1>FDE India · 5-Cohort Analysis</h1><p class="sub">FDE-only enrollment · 27 total sales · 16 in attendee scope · 29 Jul - 20 Aug 2026</p></div><div class="ks"><div class="ki"><div class="kv" style="color:#8B5CF6">0.0%</div><div class="kl">3-5</div></div><div class="ki"><div class="kv" style="color:#2563EB">2.3%</div><div class="kl">5-8</div></div><div class="ki"><div class="kv" style="color:#059669">2.7%</div><div class="kl">9-15</div></div><div class="ki"><div class="kv" style="color:#0D9488">3.3%</div><div class="kl">16-20</div></div><div class="ki"><div class="kv" style="color:#065F46">2.0%</div><div class="kl">20+</div></div></div></div></div>
-<div class="w" style="padding-top:20px;padding-bottom:0">
-<div style="background:var(--cd);border:1px solid var(--rl);border-radius:4px;padding:16px 20px;margin-bottom:18px">
-<div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--nv);font-weight:600;margin-bottom:10px">Contents</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px 20px;font-size:12.5px">
-<a href="#sec-start" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">1. Data Source &amp; Scope</a>
-<a href="#sec-funnel" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">2. Funnel Movement</a>
-<a href="#sec-enrollment" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">3. Sales Input Metrics</a>
-<a href="#sec-stall" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">4. Step-by-Step Conversion</a>
-<a href="#sec-stall-status" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">5. Lead Status Distribution</a>
-<a href="#sec-transcripts" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">6. Call Transcript Analysis</a>
-<a href="#sec-leakage" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">7. Channel Performance</a>
-<a href="#sec-actions" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">8. What Worked vs Didn't</a>
-<a href="#sec-channel" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">9. Channel Mix - T500</a>
-<a href="#sec-domain" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">10. Domain-Level Breakdown</a>
-<a href="#sec-journey" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">11. Lead Journey</a>
-<a href="#sec-pve" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">12. Positive vs Enrolled</a>
-<a href="#sec-tiers" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">13. Lead Tiering</a>
-<a href="#sec-recovery" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">14. Summary &amp; Next Steps</a>
-<a href="#sec-definitions" style="color:var(--i2);text-decoration:none;padding:3px 0;border-bottom:1px solid #F1F5F9">15. Definitions &amp; Filters</a>
-</div></div></div>
 <div class="snav"><div class="w" style="padding:0">
-<ul>
-<li><a href="#sec-start">Start here</a></li>
-<li><a href="#sec-enrollment">Enrolment</a></li>
-<li><a href="#sec-funnel">Numbers</a></li>
-<li><a href="#sec-stall">Where leads stall</a></li>
-<li><a href="#sec-transcripts">Transcripts</a></li>
-<li><a href="#sec-leakage">₹ Leakage</a></li>
-<li><a href="#sec-actions">Actions</a></li>
-<li><a href="#sec-tiers">Tiers</a></li>
-<li><a href="#sec-recovery">231 leads</a></li>
-<li><a href="#sec-definitions">Definitions</a></li>
-</ul>
+<ul><li><a href="#sec-start"><i>01</i>Scope</a></li><li class="gd"><a href="#sec-funnel"><i>02</i>Funnel</a></li><li><a href="#sec-enrollment"><i>03</i>Effort</a></li><li><a href="#sec-stall"><i>04</i>Steps</a></li><li><a href="#sec-stall-status"><i>05</i>Status</a></li><li class="gd"><a href="#sec-transcripts"><i>06</i>Calls</a></li><li><a href="#sec-leakage"><i>07</i>Channels</a></li><li><a href="#sec-actions"><i>08</i>Worked</a></li><li><a href="#sec-channel"><i>09</i>T500</a></li><li class="gd"><a href="#sec-domain"><i>10</i>Domain</a></li><li><a href="#sec-journey"><i>11</i>Journey</a></li><li><a href="#sec-pve"><i>12</i>Pos vs Enr</a></li><li class="gd"><a href="#sec-tiers"><i>13</i>Tiers</a></li><li><a href="#sec-summary"><i>14</i>Summary</a></li><li><a href="#sec-next"><i>15</i>Next steps</a></li><li class="gd"><a href="#sec-definitions"><i>16</i>Definitions</a></li></ul>
 </div></div>
-<div class="tbar" style="top:40px"><div class="w"><label>Display</label>
+<div class="tbar" style="top:40px"><div class="w" style="padding:0 24px"><label>Display</label>
 <button class="tbtn active" data-mode="b" onclick="setMode('b',this)">Both</button>
 <button class="tbtn" data-mode="p" onclick="setMode('p',this)">% only</button>
-<button class="tbtn" data-mode="n" onclick="setMode('n',this)"># only</button></div></div><div class="w"><div id="sec-start"></div><div class="sec"><div class="sh"><h2>Data Source & Scope</h2></div>
+<button class="tbtn" data-mode="n" onclick="setMode('n',this)"># only</button></div></div><div class="w"><div id="sec-start"></div><div class="sec"><div class="sh"><span class="num">01</span><h2>Data Source &amp; Scope</h2></div>
 <div style="background:var(--cd);border:1px solid var(--rl);border-radius:4px;padding:12px 16px;font-size:12px"><table style="width:100%;border-collapse:collapse">
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600;width:140px">Source</td><td>FDE Leads sheet (BQ: <code>ik-marketing-data.India_Leads.FDE_India_live_sheet</code>) + FDE sales tracker (27 confirmed sales)</td></tr>
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">Data as of</td><td>24 August 2026</td></tr>
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">Enrollment</td><td><b>FDE-only</b> - 27 total FDE sales cross-referenced by HubSpot ID. 16 match attendees in scope. Other IK programs (EdgeUp, LevelUp, TPM, etc.) excluded.</td></tr>
-<tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">All 27 FDE sales</td><td>9-15: 13 · 5-8: 6 · 16-20: 6 · 20+: 2 · Total revenue: ₹55.9L · Avg deal: ₹2.07L</td></tr>
+<tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">All 27 FDE sales</td><td>9-15: 13 · 5-8: 6 · 16-20: 6 · 20+: 2 · 3-5: 0. Revenue and ASP below.</td></tr>
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">Scope</td><td><b>661 attendees</b> (funnel analysis). <b>582 connected leads</b> (call analysis). <b>Scope note:</b> 3-5 YOE is attendees only; all other cohorts include the full connected population. 16 FDE enrolled within the attendee scope. 9 FDE sales came from other funnels (not in this dataset). 2 registered but did not attend.</td></tr>
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0;font-weight:600">Reached</td><td>≥1 call attempt by Sales. Does NOT mean phone rang.</td></tr>
 <tr><td style="padding:4px 0;font-weight:600">Connected</td><td>≥1 two-way conversation. Lead picked up or called back.</td></tr>
 </table></div>
-<div style="background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid var(--amb);border-radius:0 4px 4px 0;padding:14px 18px;margin:14px 0 0;font-size:12px;line-height:1.6">
-<div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amb);font-weight:600;margin-bottom:8px">Known data quality issues - read before quoting these numbers</div>
-
-<div style="margin-bottom:10px"><b>1. Connect-to-DCD is unreliable in its current form.</b> DCD is read from a CRM status field while Connected comes from call logs, so the two do not share a denominator. <b>84 attendees carry DCD_Flag = 1 with zero logged two-way calls</b> - 56 of them have a DCD_Date that predates their webinar, meaning the tag was carried forward from an earlier programme cycle. This inflates Connect-to-DCD and produces the five domain rows above 100% in the Domain-Level Breakdown.
-<br><br>
-<b>Impact on the headline:</b> the current figures show 5-8 at 65% versus 16-20 at 92%, a 27 percentage point gap. Applying the clean definition (<code>DCD_Flag = 1 AND Connected = 1</code>) gives 5-8 at 55% and 16-20 at 62% - a 7 point gap. The direction holds but the magnitude does not. <b>Do not quote the 27 point gap externally.</b>
-<br><br>
-<b>Clean rates if recomputed:</b> 3-5 at 60%, 5-8 at 55%, 9-15 at 68%, 16-20 at 62%, 20+ at 52%. Total DCD count drops from 340 to 256.
-<br><br>
-<b>Fix at source:</b> stamp DCD_Date only on a call logged after the current webinar, or add a DCD_source field so carried-forward tags stay distinguishable. Until then use the AND condition.</div>
-
-<div><b>2. Two different Enrolled numbers exist in this dataset.</b> Every figure in this dashboard is <b>FDE-only</b> - 27 confirmed FDE Program India sales cross-referenced by HubSpot ID. The all-programme rate is materially higher because 21 attendees enrolled in other IK programmes, mostly Transformative GenAI &amp; AgenticAI variants.
-<br><br>
-FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5.8% - 16-20 is 3.3% vs 9.9% - 20+ is 2.0% vs 10.0%. Overall 2.4% vs 5.6%.
-<br><br>
-<b>Never place both on the same chart without labels.</b> Suggested naming: FDE_Conversion_Rate and Webinar_Total_Conversion_Rate. Note also that 16 of the 21 other-programme enrollments have a blank course field and cannot be verified from this sheet alone.
-<br><br>
-<b>Worth a separate look:</b> 16-20 converts at 9.9% across all programmes but only 3.3% into FDE. That band is buying - just not buying FDE.</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px">
+<div class="cb" style="border-top-color:var(--nv)"><div class="ch">Booked revenue</div><div class="cv money">₹55.9L</div><div class="cfull">₹55,90,000</div><div class="cusd">$58,595</div><div class="cd">27 confirmed FDE sales</div></div>
+<div class="cb" style="border-top-color:var(--grn)"><div class="ch">ASP · all sales</div><div class="cv money" style="color:var(--grn)">₹2.07L</div><div class="cfull">₹2,07,000</div><div class="cusd">$2,170</div><div class="cd">₹55.9L ÷ 27</div></div>
+<div class="cb" style="border-top-color:#059669"><div class="ch">ASP · 9-15</div><div class="cv money" style="color:#059669">₹2.16L</div><div class="cfull">₹2,16,200</div><div class="cusd">$2,266</div><div class="cd">13 sales · ₹28.1L · 50% of revenue</div></div>
+<div class="cb" style="border-top-color:var(--i3)"><div class="ch">ASP · all other bands</div><div class="cv money" style="color:var(--i2)">₹1.99L</div><div class="cfull">₹1,98,600</div><div class="cusd">$2,082</div><div class="cd">14 sales · ₹27.8L blended</div></div>
 </div>
-</div><div class="si-wrap"><div><div id="sec-funnel"></div><div class="sec"><div class="sh"><h2>Funnel Movement</h2><span class="tag">FDE-only · 5 cohorts × 4 webinars</span></div>
+<div style="font-size:11px;color:var(--i2);margin-top:8px;padding-left:10px;border-left:2px solid var(--rl);line-height:1.5">Sales by band: 9-15 13 · 5-8 6 · 16-20 6 · 20+ 2 · 3-5 zero. <b>Per-band ASP for 5-8, 16-20 and 20+ is not derivable from this package</b> - only the 9-15 revenue line is broken out, so the other three are shown blended. Splitting them needs <code style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#F1F5F9;padding:1px 4px;border-radius:2px">India_Leads.Sales_Analysis</code>.<br>For sizing recovery work: at ₹2.07L, the 10-enrollment bar that would validate the 68-lead sprint is roughly <b>₹20.7L</b> <span style="color:var(--i3)">($21,700)</span>. Illustrative arithmetic, not a forecast.<br>Source revenue is recorded to the nearest ₹0.1L, so every ASP here carries roughly ±₹400. Figures shown in lakh throughout; the full rupee value sits under each card.<br><b>USD is a converted display value, not a booked amount.</b> All sales are transacted and recorded in INR. Converted at <b>₹95.4 = $1</b>, the mid-market rate quoted by Yahoo Finance, CNBC and Xe in late August 2026. The rate moves daily, so treat the dollar line as indicative and re-run it before it goes into anything external.</div>
+<div style="background:#FFFBEB;border:1px solid #FDE68A;border-left:4px solid var(--amb);border-radius:0 4px 4px 0;padding:12px 16px;margin:14px 0 0;font-size:11.5px;line-height:1.55"><div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amb);font-weight:600;margin-bottom:7px">Five flags - read before quoting</div><b>1.</b> Connect-to-DCD is inflated. Do not quote the 27 point 5-8 vs 16-20 gap; the clean definition gives 7 points.<br><b>2.</b> Two Enrolled numbers exist. Everything here is FDE-only (2.4%). All-programme is 5.6%. Never mix them on one chart.<br><b>3.</b> Meaningful calls exceed connects in every cohort. Treat that rate as directional.<br><b>4.</b> <code>cube5.json</code> carries a stale enrollment count (21, not 16). Do not rebuild enrollment from it.<br><b>5.</b> <code>RTE_Flag</code> is historical, not a current stage - only 21 of 67 flagged leads are still Positive. Do not add it into Positive as a count.<br><span style="color:var(--i2)">Full detail, with the numbers and the fix at source, in <a href="#sec-definitions" style="color:var(--amb);font-weight:600">§16 Definitions</a>.</span></div>
+</div><div class="chap"><span class="cl">The funnel · 661 attendees</span><span class="cr"></span></div><div class="si-wrap"><div><div id="sec-funnel"></div><div class="sec"><div class="sh"><span class="num">02</span><h2>Funnel Movement</h2><span class="tag">FDE-only · 5 cohorts × 4 webinars</span></div>
 <div class="sdesc">Read <b>across</b> to compare cohorts. Read <b>down</b> for trend across webinars.</div>
 <div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;color:var(--nv);margin-bottom:2px">Attendees</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px">Valid YOE.</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
@@ -177,14 +177,14 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr><td class="rl">13 Aug</td><td class="c " data-n="5" data-p="55.6%" data-b="5 (55.6%)">5 (55.6%)</td><td class="c " data-n="17" data-p="48.6%" data-b="17 (48.6%)">17 (48.6%)</td><td class="c " data-n="36" data-p="48.0%" data-b="36 (48.0%)">36 (48.0%)</td><td class="c " data-n="10" data-p="32.3%" data-b="10 (32.3%)">10 (32.3%)</td><td class="c " data-n="6" data-p="42.9%" data-b="6 (42.9%)">6 (42.9%)</td></tr>
 <tr><td class="rl">20 Aug</td><td class="c " data-n="5" data-p="50.0%" data-b="5 (50.0%)">5 (50.0%)</td><td class="c " data-n="9" data-p="28.1%" data-b="9 (28.1%)">9 (28.1%)</td><td class="c " data-n="33" data-p="58.9%" data-b="33 (58.9%)">33 (58.9%)</td><td class="c " data-n="7" data-p="33.3%" data-b="7 (33.3%)">7 (33.3%)</td><td class="c " data-n="2" data-p="33.3%" data-b="2 (33.3%)">2 (33.3%)</td></tr>
 <tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t" data-n="19" data-p="34.5%" data-b="19 (34.5%)">19 (34.5%)</td><td class="c t" data-n="64" data-p="36.2%" data-b="64 (36.2%)">64 (36.2%)</td><td class="c t" data-n="138" data-p="53.5%" data-b="138 (53.5%)">138 (53.5%)</td><td class="c t" data-n="59" data-p="48.8%" data-b="59 (48.8%)">59 (48.8%)</td><td class="c t" data-n="22" data-p="44.0%" data-b="22 (44.0%)">22 (44.0%)</td></tr></tbody></table></div>
-<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;color:var(--nv);margin-bottom:2px">Positive pipeline</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px">DCD+FU+Interested. Enrolled excluded.</div>
+<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;color:var(--nv);margin-bottom:2px">Positive pipeline</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px">DCD + Follow Up + Interested, Enrolled excluded. Ready to Enroll sits inside this stage, not after it - the companion table below is the RTE flag, not a further step.</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
 <tr><td class="rl">29 Jul</td><td class="c " data-n="0" data-p="0.0%" data-b="0 (0.0%)">0 (0.0%)</td><td class="c " data-n="4" data-p="7.5%" data-b="4 (7.5%)">4 (7.5%)</td><td class="c " data-n="5" data-p="7.7%" data-b="5 (7.7%)">5 (7.7%)</td><td class="c " data-n="3" data-p="7.1%" data-b="3 (7.1%)">3 (7.1%)</td><td class="c " data-n="0" data-p="0.0%" data-b="0 (0.0%)">0 (0.0%)</td></tr>
 <tr><td class="rl">6 Aug</td><td class="c " data-n="2" data-p="10.5%" data-b="2 (10.5%)">2 (10.5%)</td><td class="c " data-n="7" data-p="12.3%" data-b="7 (12.3%)">7 (12.3%)</td><td class="c " data-n="10" data-p="16.1%" data-b="10 (16.1%)">10 (16.1%)</td><td class="c " data-n="7" data-p="25.9%" data-b="7 (25.9%)">7 (25.9%)</td><td class="c " data-n="3" data-p="20.0%" data-b="3 (20.0%)">3 (20.0%)</td></tr>
 <tr><td class="rl">13 Aug</td><td class="c " data-n="2" data-p="22.2%" data-b="2 (22.2%)">2 (22.2%)</td><td class="c " data-n="12" data-p="34.3%" data-b="12 (34.3%)">12 (34.3%)</td><td class="c " data-n="17" data-p="22.7%" data-b="17 (22.7%)">17 (22.7%)</td><td class="c " data-n="6" data-p="19.4%" data-b="6 (19.4%)">6 (19.4%)</td><td class="c " data-n="4" data-p="28.6%" data-b="4 (28.6%)">4 (28.6%)</td></tr>
 <tr><td class="rl">20 Aug</td><td class="c " data-n="5" data-p="50.0%" data-b="5 (50.0%)">5 (50.0%)</td><td class="c " data-n="8" data-p="25.0%" data-b="8 (25.0%)">8 (25.0%)</td><td class="c " data-n="24" data-p="42.9%" data-b="24 (42.9%)">24 (42.9%)</td><td class="c " data-n="6" data-p="28.6%" data-b="6 (28.6%)">6 (28.6%)</td><td class="c " data-n="1" data-p="16.7%" data-b="1 (16.7%)">1 (16.7%)</td></tr>
 <tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t" data-n="9" data-p="16.4%" data-b="9 (16.4%)">9 (16.4%)</td><td class="c t" data-n="31" data-p="17.5%" data-b="31 (17.5%)">31 (17.5%)</td><td class="c t" data-n="56" data-p="21.7%" data-b="56 (21.7%)">56 (21.7%)</td><td class="c t" data-n="22" data-p="18.2%" data-b="22 (18.2%)">22 (18.2%)</td><td class="c t" data-n="8" data-p="16.0%" data-b="8 (16.0%)">8 (16.0%)</td></tr></tbody></table></div>
-<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;color:var(--nv);margin-bottom:2px">Ready to Enroll</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px">Pricing discussed.</div>
+<div style="margin-bottom:16px;padding-left:14px;border-left:3px solid var(--rl)"><div style="font-weight:700;font-size:12px;color:var(--i2);margin-bottom:2px">of which · Ready to Enroll flag raised</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px"><code style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:#F1F5F9;padding:1px 4px;border-radius:2px">RTE_Flag = 1</code> at any point. <b style="color:var(--amb)">Not a clean subset of the row above</b> - the flag is historical and survives a later status change. See §16 flag 5.</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
 <tr><td class="rl">29 Jul</td><td class="c " data-n="1" data-p="5.9%" data-b="1 (5.9%)">1 (5.9%)</td><td class="c " data-n="11" data-p="20.8%" data-b="11 (20.8%)">11 (20.8%)</td><td class="c " data-n="13" data-p="20.0%" data-b="13 (20.0%)">13 (20.0%)</td><td class="c " data-n="12" data-p="28.6%" data-b="12 (28.6%)">12 (28.6%)</td><td class="c " data-n="4" data-p="26.7%" data-b="4 (26.7%)">4 (26.7%)</td></tr>
 <tr><td class="rl">6 Aug</td><td class="c " data-n="0" data-p="0.0%" data-b="0 (0.0%)">0 (0.0%)</td><td class="c " data-n="4" data-p="7.0%" data-b="4 (7.0%)">4 (7.0%)</td><td class="c " data-n="8" data-p="12.9%" data-b="8 (12.9%)">8 (12.9%)</td><td class="c " data-n="2" data-p="7.4%" data-b="2 (7.4%)">2 (7.4%)</td><td class="c " data-n="2" data-p="13.3%" data-b="2 (13.3%)">2 (13.3%)</td></tr>
@@ -201,20 +201,20 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 </div>
 
 </div><div class="si-cards">
-<div class="si"><div class="sil">Takeaway</div><b>257 attendees reached but never connected</b> - this is the single largest volume leak in the entire funnel. Sales dialled these leads at least once but never got through to a two-way conversation. At 39 percentage points drop (95% reached → 56% connected), this stage loses more leads than any other. Improving connect rate by even 10 percentage points would add ~66 connected leads to the pipeline.</div>
-<div class="si warn"><div class="sil">Watch out</div><b>5-8 breaks at Connect→DCD (65%)</b> - when Sales connects with a 5-8 lead, 1 in 3 doesn't progress to a discovery call. Compare this to 16-20 at 92% where nearly every connected conversation becomes a DCD. This gap is the key structural difference between cohorts - same effort goes in, different outcome. <b style="color:var(--amb)">Caveat: on the clean DCD definition the gap narrows to 7 points (5-8 at 55%, 16-20 at 62%). Do not quote 27 externally - see the data quality note at the top.</b></div>
-<div class="si basis"><div class="sil">Basis</div>661 webinar attendees with valid YOE, deduplicated to latest webinar per lead. 16 FDE enrollments confirmed via HubSpot ID match against the 27-sale FDE tracker. EdgeUp, LevelUp, TPM, and other IK program enrollments are excluded - this is FDE-only. 9 of 27 total FDE sales are from other funnels (not in this dataset).</div>
-</div></div><div class="si-wrap"><div><div id="sec-enrollment"></div><div class="sec"><div class="sh"><h2>Sales Input Metrics</h2><span class="tag">Pre & post webinar · benchmarked against enrolled leads</span></div>
-<div class="sdesc">Is each cohort getting enough Sales effort to convert? The <b>enrolled benchmark</b> (rightmost column) shows the input profile of leads that actually enrolled. Red = below 70% of benchmark. Every cohort is underserved on connects and talk time.</div>
+<div class="si"><div class="sil">Takeaway</div><b>257 attendees were reached but never connected.</b> Reached 95% → connected 56% is the largest single drop in the funnel. Ten points of connect rate is roughly 66 more conversations.</div>
+<div class="si warn"><div class="sil">Watch out</div><b>5-8 breaks at Connect→DCD (65% vs 92% for 16-20).</b> On the clean DCD definition the gap is 7 points, not 27 - see <a href="#sec-definitions" style="color:var(--amb)">§16</a>.</div>
+<div class="si basis"><div class="sil">Basis</div>661 attendees with valid YOE, one row per HubSpot ID. FDE-only enrollment: 16 of the 27 confirmed sales fall in this scope.</div>
+</div></div><div class="si-wrap"><div><div id="sec-enrollment"></div><div class="sec"><div class="sh"><span class="num">03</span><h2>Sales Input Metrics</h2><span class="tag">Pre & post webinar · benchmarked against enrolled leads</span></div>
+<div class="sdesc">Every per-lead average below is over <b>all cohort attendees</b>, including leads that were never dialled - not over reached or connected leads. The benchmark column is the same formulas over the 16 FDE-enrolled attendees. Red = below 70% of benchmark. <a href="#sec-definitions" style="color:var(--i2)">Formulas in §16.</a></div>
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Pre-Webinar Effort</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Sales activity before the webinar date. Sets up the post-webinar call.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Activity dated before the webinar. Denominator: all cohort attendees.</div>
 <table class="gt"><thead><tr><th style="text-align:left">Metric</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th><th style="background:#E8ECF1;color:var(--nv)">Enrolled benchmark</th></tr></thead><tbody>
 <tr><td class="rl">Attempts/lead</td><td class="c" style="color:var(--red);font-weight:600">1.0</td><td class="c" style="color:var(--grn)">3.0</td><td class="c" style="color:var(--grn)">3.2</td><td class="c" style="color:var(--grn)">3.1</td><td class="c" style="color:var(--grn)">3.1</td><td class="c t">3.2</td></tr>
 <tr><td class="rl">Connects/lead</td><td class="c" style="color:var(--red);font-weight:600">0.3</td><td class="c" style="color:var(--red);font-weight:600">0.4</td><td class="c">0.5</td><td class="c" style="color:var(--red);font-weight:600">0.4</td><td class="c" style="color:var(--red);font-weight:600">0.3</td><td class="c t">0.7</td></tr>
 <tr><td class="rl">Talk time (min)</td><td class="c" style="color:var(--red);font-weight:600">5.4</td><td class="c" style="color:var(--red);font-weight:600">3.8</td><td class="c" style="color:var(--red);font-weight:600">5.2</td><td class="c" style="color:var(--red);font-weight:600">4.4</td><td class="c" style="color:var(--red);font-weight:600">3.6</td><td class="c t">9.0</td></tr>
 </tbody></table>
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Post-Webinar Effort</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Activity after the webinar. This is where enrolled leads separated - they got 8.9 post-web attempts and 35 min of post-web talk time. Current cohorts are at 3-6 attempts and 6-8 min.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Activity dated after the webinar. This is where enrolled leads separated.</div>
 <table class="gt"><thead><tr><th style="text-align:left">Metric</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th><th style="background:#E8ECF1;color:var(--nv)">Enrolled benchmark</th></tr></thead><tbody>
 <tr><td class="rl">Attempts/lead</td><td class="c" style="color:var(--red);font-weight:600">2.8</td><td class="c" style="color:var(--red);font-weight:600">5.0</td><td class="c" style="color:var(--red);font-weight:600">5.4</td><td class="c" style="color:var(--red);font-weight:600">5.3</td><td class="c" style="color:var(--red);font-weight:600">6.0</td><td class="c t">8.9</td></tr>
 <tr><td class="rl">Connects/lead</td><td class="c" style="color:var(--red);font-weight:600">0.3</td><td class="c" style="color:var(--red);font-weight:600">0.5</td><td class="c" style="color:var(--red);font-weight:600">0.6</td><td class="c" style="color:var(--red);font-weight:600">0.5</td><td class="c" style="color:var(--red);font-weight:600">0.6</td><td class="c t">2.0</td></tr>
@@ -246,18 +246,13 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr><td class="rl">20 Aug</td><td class="c" style="color:var(--red)">1.8</td><td class="c" style="color:var(--red)">3.6</td><td class="c">9.6</td><td class="c" style="color:var(--red)">2.3</td><td class="c" style="color:var(--red)">1.0</td></tr>
 <tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">6.1</td><td class="c t">5.7</td><td class="c t">8.1</td><td class="c t">7.7</td><td class="c t">6.1</td></tr></tbody></table>
 
-<div class="co red"><div class="dot" style="background:var(--red)"></div><b>Every cohort is below the enrolled benchmark.</b> Enrolled leads got 12.1 attempts, 2.7 connects, and 39.3 min talk time. The best-performing cohort (9-15) gets 8.6 attempts, 1.1 connects, and 12.5 min. The post-webinar gap is the most critical: enrolled leads got 8.9 post-web attempts and 35.2 min post-web talk time vs 3-6 attempts and 6-8 min for current cohorts.</div>
-
-<div class="co amb"><div class="dot" style="background:var(--amb)"></div><b>3-5 is the most underfed:</b> 3.9 total attempts (32% of enrolled benchmark), 20% zero attempts, only 75% post-web coverage. But their connect rate is 16% - highest across all cohorts. When Sales dials, they pick up. The effort gap is not about reach - it's about attempt volume.</div>
-
-<div class="co blue"><div class="dot" style="background:#3B82F6"></div><b>The enrolled conversion pattern requires:</b> 12+ attempts, 2.5+ connects, 30+ min total talk time, 100% meaningful call rate. No cohort currently hits these thresholds at a cohort-average level. The 16 leads that enrolled were outliers who received significantly more effort than their cohort peers.</div>
 </div>
 
 </div><div class="si-cards">
-<div class="si flag"><div class="sil">Flag</div><b>Every cohort is below the enrolled benchmark on all three input dimensions.</b> The 16 leads that actually enrolled received 12.1 attempts, 2.7 connects, and 39.3 min talk time on average. The best-performing cohort (9-15) gets only 8.6 attempts, 1.1 connects, and 12.5 min. This means enrolled leads were outliers who received 40-50% more effort than their cohort peers - conversion isn't happening at current effort levels.</div>
-<div class="si warn"><div class="sil">Watch out</div><b>Post-webinar effort is where enrolled leads separated.</b> Enrolled leads got 8.9 post-webinar attempts and 35.2 min of post-webinar talk time. Current cohorts average only 3-6 attempts and 6-8 min after the webinar. Pre-webinar effort is roughly comparable across cohorts (3.0-3.2 att/lead) - the divergence happens entirely in the post-webinar follow-through window.</div>
-<div class="si"><div class="sil">Takeaway</div><b>3-5 gets only 32% of the enrolled benchmark on attempts</b> (3.9 vs 12.1) and 20% of the cohort has received zero attempts at all. Yet their connect rate per attempt is 16% - the highest of any cohort. This means 3-5 leads are reachable and responsive when Sales dials, but Sales isn't dialling. The gap is effort volume, not lead reachability. With only 75% post-webinar coverage (vs 88-92% for others), this cohort hasn't been given a fair test.</div>
-</div></div><div class="si-wrap"><div><div id="sec-stall"></div><div class="sec"><div class="sh"><h2>Step-by-Step Conversion</h2></div>
+<div class="si flag"><div class="sil">Flag</div><b>No cohort reaches the enrolled benchmark on any input.</b> Enrolled leads averaged 12.1 attempts, 2.7 connects and 39.3 min. The best cohort (9-15) gets 8.6 / 1.1 / 12.5. Enrolled leads were outliers, not the norm.</div>
+<div class="si warn"><div class="sil">Watch out</div><b>The divergence is entirely post-webinar.</b> Pre-webinar effort is comparable across cohorts (3.0-3.2 attempts). Enrolled leads got 8.9 post-webinar attempts and 35.2 min; cohorts get 3-6 and 6-8.</div>
+<div class="si"><div class="sil">Takeaway</div><b>3-5 is underfed, not unreachable.</b> 32% of the benchmark on attempts, 20% never dialled at all - yet the highest connect rate per attempt (16%). The cohort has not had a fair test.</div>
+</div></div><div class="si-wrap"><div><div id="sec-stall"></div><div class="sec"><div class="sh"><span class="num">04</span><h2>Step-by-Step Conversion</h2></div>
 <div style="background:#FFFBEB;border-left:3px solid var(--amb);padding:8px 12px;margin:8px 0;font-size:11.5px"><b>Caveat:</b> Connect-to-DCD below uses the raw DCD_Flag and is inflated - 84 attendees carry a DCD tag with no logged two-way call. Clean rates (DCD_Flag AND Connected): 3-5 60%, 5-8 55%, 9-15 68%, 16-20 62%, 20+ 52%. See the data quality note at the top.</div><table class="gt"><thead><tr><th>Step</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th><th>Read</th></tr></thead><tbody>
 <tr><td class="rl">Attend→Reached</td><td class="c">80%</td><td class="c">96%</td><td class="c">98%</td><td class="c">97%</td><td class="c">92%</td><td style="font-size:10.5px;color:var(--i2)">3-5 has 20% zero attempts</td></tr>
 <tr><td class="rl">Reached→Connected</td><td class="c">57%</td><td class="c">58%</td><td class="c">63%</td><td class="c">55%</td><td class="c">54%</td><td style="font-size:10.5px;color:var(--i2)">Comparable across bands</td></tr>
@@ -267,9 +262,9 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr style="background:#ECFDF5"><td class="rl">Attend→FDE Enrolled</td><td class="c" style="color:var(--i3)">0%</td><td class="c">2%</td><td class="c" style="color:var(--grn);font-weight:700">3%</td><td class="c" style="color:var(--grn);font-weight:700">3%</td><td class="c">2%</td><td style="font-size:10.5px;color:var(--i2)">16-20 leads at 3.3%</td></tr>
 </tbody></table></div>
 </div><div class="si-cards">
-<div class="si"><div class="sil">Takeaway</div><b>Connect→DCD is the single stage where cohorts diverge most.</b> Reached→Connected is comparable across bands (55-63%), but once connected, the conversion to a structured discovery call varies enormously: 5-8 at 65%, 9-15 at 86%, 16-20 at 92%, 20+ at 88%. This tells us the issue isn't about reaching people - it's about what happens in the first real conversation. Something about 5-8 calls isn't progressing to DCD. Transcript analysis would reveal whether it's the pitch, the lead's readiness, or the call structure.</div>
-<div class="si warn"><div class="sil">Watch out</div><b>Positive→Enrolled conversion is 18% for 16-20 and 9-15</b> - roughly 1 in 5 positive leads enrolls. 20+ shows 38% but this is based on only 8 positive leads, so the rate is directional, not reliable. 5-8 at 13% is the weakest closer. The Attend→FDE Enrolled rate ranges from 2.0% to 3.3% - a compressed range that makes cohort selection less impactful than fixing Sales execution on existing positives.</div>
-</div></div><div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-stall-status"></div><div class="sec"><div class="sh"><h2>Lead Status Distribution</h2><span class="tag">Your formula logic</span></div>
+<div class="si"><div class="sil">Takeaway</div><b>Connect→DCD is where cohorts diverge.</b> Reached→Connected is flat across bands (55-63%). What happens in the first real conversation is not.</div>
+<div class="si warn"><div class="sil">Watch out</div><b>Attend→Enrolled spans only 2.0% to 3.3%.</b> That compressed range makes cohort selection a smaller lever than fixing execution on leads already in the pipeline. 20+ shows 38% Positive→Enrolled on 8 leads - directional only.</div>
+</div></div><div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-stall-status"></div><div class="sec"><div class="sh"><span class="num">05</span><h2>Lead Status Distribution</h2><span class="tag">CRM lead_status buckets · RTE merged into Positive · denominator = cohort attendees</span></div>
 <div style="margin-bottom:12px"><div style="font-weight:600;font-size:12px;color:var(--nv);margin-bottom:3px">New %</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
 <tr><td class="rl">29 Jul</td><td class="c">64.7%</td><td class="c">7.5%</td><td class="c">7.7%</td><td class="c">11.9%</td><td class="c">0.0%</td></tr>
@@ -284,20 +279,13 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr><td class="rl">13 Aug</td><td class="c">33.3%</td><td class="c">34.3%</td><td class="c">48.0%</td><td class="c">32.3%</td><td class="c">21.4%</td></tr>
 <tr><td class="rl">20 Aug</td><td class="c">10.0%</td><td class="c">25.0%</td><td class="c">17.9%</td><td class="c">19.0%</td><td class="c">16.7%</td></tr>
 <tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">30.9%</td><td class="c t">55.4%</td><td class="c t">51.9%</td><td class="c t">42.1%</td><td class="c t">50.0%</td></tr></tbody></table></div>
-<div style="margin-bottom:12px"><div style="font-weight:600;font-size:12px;color:var(--nv);margin-bottom:3px">DCD %</div>
+<div style="margin-bottom:12px"><div style="font-weight:600;font-size:12px;color:var(--nv);margin-bottom:3px">Positive %</div><div style="font-size:11px;color:var(--i2);margin-bottom:5px">Discovery call done + Follow Up + Ready to enroll, merged. Ready to enroll is a state inside Positive, not a stage after it. Split at cohort level: DCD 113, Follow Up and Ready to enroll 11, Positive 124.</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
-<tr><td class="rl">29 Jul</td><td class="c">0.0%</td><td class="c">3.8%</td><td class="c">6.2%</td><td class="c">7.1%</td><td class="c">0.0%</td></tr>
-<tr><td class="rl">6 Aug</td><td class="c">10.5%</td><td class="c">10.5%</td><td class="c">11.3%</td><td class="c">22.2%</td><td class="c">20.0%</td></tr>
-<tr><td class="rl">13 Aug</td><td class="c">22.2%</td><td class="c">31.4%</td><td class="c">20.0%</td><td class="c">19.4%</td><td class="c">28.6%</td></tr>
-<tr><td class="rl">20 Aug</td><td class="c">50.0%</td><td class="c">25.0%</td><td class="c">39.3%</td><td class="c">28.6%</td><td class="c">16.7%</td></tr>
-<tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">16.4%</td><td class="c t">15.3%</td><td class="c t">18.6%</td><td class="c t">17.4%</td><td class="c t">16.0%</td></tr></tbody></table></div>
-<div style="margin-bottom:12px"><div style="font-weight:600;font-size:12px;color:var(--nv);margin-bottom:3px">RTE %</div>
-<table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
-<tr><td class="rl">29 Jul</td><td class="c">0.0%</td><td class="c">3.8%</td><td class="c">1.5%</td><td class="c">0.0%</td><td class="c">0.0%</td></tr>
-<tr><td class="rl">6 Aug</td><td class="c">0.0%</td><td class="c">1.8%</td><td class="c">3.2%</td><td class="c">3.7%</td><td class="c">0.0%</td></tr>
-<tr><td class="rl">13 Aug</td><td class="c">0.0%</td><td class="c">2.9%</td><td class="c">1.3%</td><td class="c">0.0%</td><td class="c">0.0%</td></tr>
-<tr><td class="rl">20 Aug</td><td class="c">0.0%</td><td class="c">0.0%</td><td class="c">3.6%</td><td class="c">0.0%</td><td class="c">0.0%</td></tr>
-<tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">0.0%</td><td class="c t">2.3%</td><td class="c t">2.3%</td><td class="c t">0.8%</td><td class="c t">0.0%</td></tr></tbody></table></div>
+<tr><td class="rl">29 Jul</td><td class="c">0.0%</td><td class="c">7.5%</td><td class="c">7.7%</td><td class="c">7.1%</td><td class="c">0.0%</td></tr>
+<tr><td class="rl">6 Aug</td><td class="c">10.5%</td><td class="c">12.3%</td><td class="c">14.5%</td><td class="c">25.9%</td><td class="c">20.0%</td></tr>
+<tr><td class="rl">13 Aug</td><td class="c">22.2%</td><td class="c">34.3%</td><td class="c">21.3%</td><td class="c">19.4%</td><td class="c">28.6%</td></tr>
+<tr><td class="rl">20 Aug</td><td class="c">50.0%</td><td class="c">25.0%</td><td class="c">42.9%</td><td class="c">28.6%</td><td class="c">16.7%</td></tr>
+<tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">16.4%</td><td class="c t">17.5%</td><td class="c t">20.9%</td><td class="c t">18.2%</td><td class="c t">16.0%</td></tr></tbody></table></div>
 <div style="margin-bottom:12px"><div style="font-weight:600;font-size:12px;color:var(--nv);margin-bottom:3px">Enrolled %</div>
 <table class="gt"><thead><tr><th>Webinar</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
 <tr><td class="rl">29 Jul</td><td class="c">0.0%</td><td class="c" style="color:var(--grn);font-weight:700">3.8%</td><td class="c" style="color:var(--grn);font-weight:700">13.8%</td><td class="c" style="color:var(--grn);font-weight:700">21.4%</td><td class="c" style="color:var(--grn);font-weight:700">20.0%</td></tr>
@@ -321,25 +309,26 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr style="border-top:2px solid var(--rl)"><td class="rl" style="font-weight:700">Total</td><td class="c t">5.5%</td><td class="c t">2.8%</td><td class="c t">3.1%</td><td class="c t">4.1%</td><td class="c t">2.0%</td></tr></tbody></table></div>
 </div>
 </div><div class="si-cards" style="position:static;flex-direction:row;flex-wrap:wrap;display:flex;gap:12px">
-<div style="flex:1;min-width:280px" class="si warn"><div class="sil">Watch out</div><b>"No plan" is the dominant terminal state at 37-39% across all cohorts.</b> This is not a pricing problem - pricing objection is only 2-6% everywhere. The webinar is attracting people who are curious about FDE as a concept but are not actively looking to transition. They attend, they listen, they may even pick up when Sales calls - but they have no actionable career-change plan. This has implications for webinar targeting: consider qualifying for active career-transition signals (currently interviewing, applied to roles, updated resume) at registration.</div>
-<div style="flex:1;min-width:280px" class="si basis"><div class="sil">Basis</div>These percentages use your exact Excel formula logic applied to each cohort: New % = (New + Call me later + Non contact + Step 2 Funnel Exit) / Total. Junk + NI % = (all "Not interested*" + Junk) / Total. DCD % = Discovery call done only / Total. RTE % = (Ready to enroll + Follow Up) / Total. Enrolled % = Enrolled / Total. Denominators are cohort attendee counts, not connected or DCD counts.</div>
+<div style="flex:1;min-width:280px" class="si warn"><div class="sil">Watch out</div><b>"No plan" is the dominant terminal state at 37-39% in every cohort.</b> Pricing objection is 2-6%. The webinar draws people curious about FDE who have no active transition plan - a registration-qualification question, not a pricing one.</div>
+<div style="flex:1;min-width:280px" class="si flag"><div class="sil">Flag</div><b>Enrolled % here is all-programme, not FDE.</b> This table reads CRM <code>lead_status</code>; §2 reads the FDE sales tracker. Same word, different number - 37 leads vs 16. <b>DCD % and RTE % differ the same way.</b> The mapping is in <a href="#sec-definitions" style="color:var(--red)">§16</a>.</div>
+<div style="flex:1;min-width:280px" class="si basis"><div class="sil">Basis</div>Each bucket is a set of exact <code>lead_status</code> strings over cohort attendees. Positive % merges Discovery call done, Follow Up and Ready to enroll - RTE is a state inside Positive, not a stage after it. Columns sum to ~99%, not 100 - "Interested-Enroll Later" (7 leads) has no bucket. Full status map in §16.</div>
 </div></div>
-<div id="sec-transcripts"></div><div class="sec">
-<div class="sh"><h2>Call Transcript Analysis</h2><span class="tag">582 leads - 41 diagnostic fields per call - model-blinded to cohort and outcome</span></div>
-<div class="sdesc"><b>Scope note:</b> 3-5 YOE includes attendees only. All other cohorts (5-8, 9-15, 16-20, 20+) include the full population (attendees + non-attendees with a connected call). This is per the analysis brief - 3-5 is a smaller, attendee-only sample.<br><br>582 call transcripts were analysed using a structured diagnostic prompt that extracts 41 fields per lead. The model was blinded to the lead's YOE cohort and outcome (enrolled/positive/lost) to prevent circular reasoning. Cohort and outcome labels are joined back in this BI layer.</div>
+<div class="chap"><span class="cl">The calls · 582 transcripts</span><span class="cr"></span></div><div id="sec-transcripts"></div><div class="sec">
+<div class="sh"><span class="num">06</span><h2>Call Transcript Analysis</h2><span class="tag">582 leads - 41 diagnostic fields per call - model-blinded to cohort and outcome</span></div>
+<div class="sdesc">582 transcripts read through a 41-field diagnostic. The model was blinded to cohort and outcome, so these differences come from call content alone; labels were joined back afterwards. <b>Scope:</b> 3-5 is attendees only; the other bands include non-attendees with a connected call.</div>
 
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Revenue Leakage Attribution</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Where is the revenue leaking? Attribution rule: if a lead raised an objection and Sales did not attempt to resolve it, that is SALES_PROCESS, not OFFER_PRODUCT. Offer attribution requires evidence a resolution was attempted and rejected.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Attribution rule: an objection raised and not addressed is SALES_PROCESS. OFFER_PRODUCT requires evidence that a resolution was attempted and rejected.</div>
 
 <table class="gt"><thead><tr><th style="text-align:left">Leakage type</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th><th>All</th></tr></thead><tbody>
 <tr><td class="rl">Sales Process</td><td class="c">46%</td><td class="c">47%</td><td class="c">46%</td><td class="c" style="color:var(--red);font-weight:600">52%</td><td class="c">36%</td><td class="c t">47%</td></tr>
 <tr><td class="rl">Demand / Lead Quality</td><td class="c">50%</td><td class="c">45%</td><td class="c">44%</td><td class="c">41%</td><td class="c">53%</td><td class="c t">45%</td></tr>
 <tr><td class="rl">Offer / Product</td><td class="c">4%</td><td class="c">8%</td><td class="c">10%</td><td class="c">7%</td><td class="c">11%</td><td class="c t">9%</td></tr>
 </tbody></table>
-</div><div class="insights-row" style="margin-top:14px;flex-wrap:wrap"><div class="insight" style="flex:1;min-width:220px;border-left:4px solid var(--red);border-radius:0 4px 4px 0"><div class="il">Key finding</div><b>50% of all leakage is Sales Process</b> - not lead quality, not the offer. Within POSITIVE leads (the pipeline that should convert), it rises to 52%. Half the revenue leak is fixable by changing how Sales follows up, not by changing the audience or the product.</div></div>
+</div><div class="insights-row" style="margin-top:14px;flex-wrap:wrap"><div class="insight" style="flex:1;min-width:220px;border-left:4px solid var(--red);border-radius:0 4px 4px 0"><div class="il">Key finding</div><b>47% of leakage is Sales Process</b>, rising to 52% inside the positive pipeline. Offer is 9%. The fix is follow-up, not audience or product.</div></div>
 
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Call Quality by Cohort</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">What the transcripts reveal about each YOE band. Read across to compare cohorts on the same metric.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Read across to compare cohorts on the same metric. Denominator: transcripts in that band.</div>
 <table class="gt"><thead><tr><th style="text-align:left">Metric</th><th style="color:#8B5CF6">3-5<br><span style="font-weight:400;font-size:8px">n=26</span></th><th style="color:#2563EB">5-8<br><span style="font-weight:400;font-size:8px">n=159</span></th><th style="color:#059669">9-15<br><span style="font-weight:400;font-size:8px">n=242</span></th><th style="color:#0D9488">16-20<br><span style="font-weight:400;font-size:8px">n=101</span></th><th style="color:#065F46">20+<br><span style="font-weight:400;font-size:8px">n=36</span></th></tr></thead><tbody>
 <tr class="ml"><td class="mlbl" colspan="6">Intent & interest</td></tr>
 <tr><td class="rl">HIGH intent</td><td class="c">19%</td><td class="c">11%</td><td class="c">17%</td><td class="c">15%</td><td class="c">11%</td></tr>
@@ -366,11 +355,11 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <div class="insights-row">
 <div class="insight takeaway"><div class="bar"></div><div class="body"><div class="il">Takeaway</div><b>5-8 and 9-15 are nearly identical on call quality.</b> Intent (62% vs 55% active), FDE interest (46% vs 52%), leakage split (47% vs 46% Sales Process), role fit weak (15% vs 16%). The one gap: objection resolution is 7% for 5-8 vs 16% for 9-15. Sales leaves 5-8 objections on the table more than any other cohort.</div></div>
 <div class="insight warn"><div class="bar"></div><div class="body"><div class="il">Watch out</div><b>77% of all calls end without a next step.</b> Even among POSITIVE leads, only 28% have a clear next action established. This is the single most consistent Sales execution gap across every cohort, every channel, every segment.</div></div>
-<div class="insight basis"><div class="bar"></div><div class="body"><div class="il">Watch out</div><b>47% of calls have unresolved objections.</b> Only 11% get resolved. The attribution rule means these are counted as SALES_PROCESS leakage, not OFFER_PRODUCT - the objection was raised but Sales didn't attempt to handle it.</div></div>
+<div class="insight basis"><div class="bar"></div><div class="body"><div class="il">Watch out</div><b>47% of calls carry an unresolved objection; only 11% get resolved.</b> Under the attribution rule these count as Sales Process, not Offer.</div></div>
 </div>
 
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Enrolled vs Positive: The Buying Signature</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">What separates leads that enrolled from leads that look positive but haven't converted? The model was blinded to outcome - these differences emerged from call content alone.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">What separates enrolled leads from leads that look positive but have not converted.</div>
 <table class="gt"><thead><tr><th style="text-align:left">Signal</th><th>ENROLLED<br><span style="font-weight:400;font-size:8px">n=15</span></th><th>POSITIVE<br><span style="font-weight:400;font-size:8px">n=158</span></th><th>NOT_INTERESTED<br><span style="font-weight:400;font-size:8px">n=266</span></th><th>OPEN_STUCK<br><span style="font-weight:400;font-size:8px">n=103</span></th></tr></thead><tbody>
 <tr><td class="rl">HIGH intent</td><td class="c" style="color:var(--grn);font-weight:600">73%</td><td class="c" style="color:var(--red)">22%</td><td class="c">6%</td><td class="c">6%</td></tr>
 <tr><td class="rl">Explicit FDE interest</td><td class="c" style="color:var(--grn);font-weight:600">87%</td><td class="c">64%</td><td class="c">41%</td><td class="c">42%</td></tr>
@@ -382,25 +371,24 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr><td class="rl">Immediate urgency</td><td class="c">60%</td><td class="c">13%</td><td class="c">14%</td><td class="c">9%</td></tr>
 </tbody></table>
 <div class="insights-row" style="margin-top:12px">
-<div class="insight" style="flex:1;min-width:250px"><div class="bar" style="background:var(--nv)"></div><div class="body"><div class="il" style="color:var(--nv)">The gap</div><b>Enrolled leads had pricing discussed 87% vs positive at 54%.</b> Next step established: 80% vs 28%. Follow-up happened: 87% vs 52%. The positive pipeline has interest but lacks the depth of engagement that drives enrollment. These aren't quality signals - they're Sales execution signals. The lead showed up; Sales didn't finish the job.</div><div class="si"><div class="sil">Takeaway</div><b>Intent-outcome mismatch is 59% for POSITIVE leads</b> - meaning the model detected buying signals in the transcript that don't match the lead's current status. These are leads where the conversation showed intent but the funnel didn't capture it. This is the recovery queue.</div></div>
+<div class="insight" style="flex:1;min-width:250px"><div class="bar" style="background:var(--nv)"></div><div class="body"><div class="il" style="color:var(--nv)">The gap</div><b>The positive pipeline has the interest but not the engagement.</b> Pricing discussed 54% vs 87%, next step 28% vs 80%, follow-up 52% vs 87%. These are execution signals, not quality signals.</div></div>
 </div>
 
 
 <div style="font-weight:700;font-size:13px;color:var(--nv);margin:16px 0 6px">Recovery Queue</div>
-<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Leads classified by recovery priority based on call content. P0 and P1 should be actively worked this week.</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:5px">Priority assigned from call content. P0 and P1 are this week's queue.</div>
 <table class="gt"><thead><tr><th style="text-align:left">Priority</th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th><th>Total</th></tr></thead><tbody>
 <tr><td class="rl" style="color:var(--red)">P0 - Call now</td><td class="c">2</td><td class="c">5</td><td class="c">4</td><td class="c">1</td><td class="c">2</td><td class="c t">14</td></tr>
 <tr><td class="rl" style="color:var(--amb)">P1 - Follow up</td><td class="c">9</td><td class="c">59</td><td class="c">107</td><td class="c">35</td><td class="c">7</td><td class="c t">217</td></tr>
 <tr><td class="rl" style="color:var(--i3)">P2 - Nurture</td><td class="c">13</td><td class="c">65</td><td class="c">82</td><td class="c">40</td><td class="c">13</td><td class="c t">213</td></tr>
 <tr><td class="rl" style="color:var(--i3)">P3 - Do not pursue</td><td class="c">2</td><td class="c">30</td><td class="c">49</td><td class="c">25</td><td class="c">14</td><td class="c t">120</td></tr>
 </tbody></table>
-<div class="insight flag" style="max-width:100%;margin:10px 0"><div class="bar"></div><div class="body"><div class="il">Action</div><b>14 P0 + 217 P1 = 231 leads to work this week.</b> These are leads where the transcript shows recoverable intent. 213 more in P2 nurture. Only 71 (12%) are P3 do-not-pursue. The revenue is sitting in the CRM - it needs follow-through, not new leads.</div></div>
-</div>
+<div class="insight flag" style="max-width:100%;margin:10px 0"><div class="bar"></div><div class="body"><div class="il">Action</div><b>231 leads to work now</b> - 14 P0 plus 217 P1. 213 more on nurture, 120 genuinely dead. The revenue is already in the CRM.</div></div>
 
 
 <div id="sec-leakage"></div><div class="sec">
-<div class="sh"><h2>Channel Performance - Call Quality View</h2><span class="tag">How each source performs in actual conversations</span></div>
-<div class="sdesc">CRM conversion rates show what happened. Call transcripts show why. This section compares channels not just on enrollment but on conversation quality - intent, objection handling, and recoverability. T500 dominates volume (324 leads, 56%) but the conversation quality tells a different story.</div>
+<div class="sh"><span class="num">07</span><h2>Channel Performance - Call Quality View</h2><span class="tag">How each source performs in actual conversations</span></div>
+<div class="sdesc">Channels compared on conversation quality rather than enrollment. T500 is 56% of volume (324 leads).</div>
 
 <table class="gt"><thead><tr><th style="text-align:left">Metric</th><th>Talent 500<br><span style="font-weight:400;font-size:8px">n=324</span></th><th>Whatsapp<br><span style="font-weight:400;font-size:8px">n=60</span></th><th>Google YouTube<br><span style="font-weight:400;font-size:8px">n=54</span></th><th>Google NB<br><span style="font-weight:400;font-size:8px">n=45</span></th><th>Email<br><span style="font-weight:400;font-size:8px">n=40</span></th><th>Other<br><span style="font-weight:400;font-size:8px">n=8</span></th><th>Organic<br><span style="font-weight:400;font-size:8px">n=20</span></th><th>Google Brand<br><span style="font-weight:400;font-size:8px">n=10</span></th></tr></thead><tbody>
 <tr><td class="rl">HIGH intent</td><td class="c">12%</td><td class="c">12%</td><td class="c">6%</td><td class="c">20%</td><td class="c">18%</td><td class="c" style="color:var(--grn);font-weight:600">50%</td><td class="c">30%</td><td class="c">40%</td></tr>
@@ -418,13 +406,13 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 </tbody></table>
 
 <div class="insights-row">
-<div class="insight takeaway"><div class="bar"></div><div class="body"><div class="il">Takeaway</div><b>Google Brand and Organic produce the highest quality conversations</b> despite small volume. Google Brand leads have the highest FDE interest, highest pricing discussion rate, and highest next-step establishment. These are intent-rich channels. The budget allocation should weight them higher relative to their current small share.</div></div>
-<div class="insight flag"><div class="bar"></div><div class="body"><div class="il">Key finding</div><b>T500 has the lowest objection resolution rate and lowest next-step establishment</b> despite being 56% of volume. The calls happen but don't progress. This confirms the CRM finding: T500 Connect-to-DCD is 55% for 5-8 vs 92% for non-T500. The transcript data now explains why - the conversations lack depth. Pricing is discussed less often, objections are left unresolved, and calls end without a clear next action.</div></div>
-<div class="insight"><div class="bar"></div><div class="body"><div class="il">Channel strategy</div><b>For 5-8 specifically:</b> shift budget from T500 toward Google Brand, Organic, Google NB, and WhatsApp. Non-T500 5-8 converts at 8.7% in CRM and shows higher pricing discussion (54% vs 33%) and better conversation depth in transcripts. For 9-15 and 16-20, T500 works better because these bands have inherently stronger intent regardless of source - but even here, non-T500 outperforms on conversation quality metrics.</div></div>
+<div class="insight takeaway"><div class="bar"></div><div class="body"><div class="il">Takeaway</div><b>Google Brand and Organic produce the best conversations on the smallest volume</b> - highest FDE interest, pricing discussion and next-step rates. Weight them above their current share.</div></div>
+<div class="insight flag"><div class="bar"></div><div class="body"><div class="il">Key finding</div><b>T500 calls happen but do not progress.</b> Lowest objection resolution, lowest next-step rate, pricing reached least often - on 56% of the volume.</div></div>
+<div class="insight"><div class="bar"></div><div class="body"><div class="il">Channel strategy</div><b>Shift 5-8 sourcing off T500</b> toward Google Brand, Organic, Google NB and WhatsApp. Non-T500 5-8 converts at 8.7% and reaches pricing 54% of the time vs 33%.</div></div>
 </div>
 </div>
 
-<div id="sec-actions"></div><div class="sec"><div class="sh"><h2>What Worked vs What Didn't</h2></div>
+<div id="sec-actions"></div><div class="sec"><div class="sh"><span class="num">08</span><h2>What Worked vs What Didn't</h2></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
 <div style="background:var(--cd);border:1px solid var(--rl);border-radius:4px;border-top:3px solid var(--grn);padding:14px 16px">
 <div class="mono" style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--grn);margin-bottom:8px">What worked</div>
@@ -443,23 +431,23 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0"><b>50% positive leads stuck at 1 connect</b> - enrolled needed 3+</td></tr>
 <tr style="border-bottom:1px solid #F1F5F9"><td style="padding:4px 0"><b>31% positive leads untagged (NO_COMMENTS)</b></td></tr>
 <tr><td style="padding:4px 0"><b>3-5 YOE: zero FDE enrollments</b>, 20% zero attempts</td></tr>
-</table></div></div></div></div><div class="insights-row" style="margin-top:12px">
-<div class="si action"><div class="il">This week</div><b>Mandate 2nd/3rd connect</b> on every positive lead within 48 hours. 50% have had exactly one call - enrolled leads needed 3+. The follow-up cadence is the single biggest fixable gap.<br><br><b>Tag every positive lead.</b> 31% have NO_COMMENTS - no classification, no follow-up date, no ownership. Zero enrolled leads had this tag.<br><br><b>Prioritise 16-20</b> for premium attention: 3.3% conversion, 92% Connect→DCD.</div>
-<div class="si action"><div class="il">This sprint</div><b>Investigate 5-8 T500 quality.</b> 131 leads, 0 FDE enrolled. Compare T500 vs non-T500 DCD transcripts from BigQuery to understand why T500 conversations don't progress.<br><br><b>Test 3-5 with equal effort.</b> Give them 8 attempts/lead for 2 webinars. Their 16% connect rate says they're reachable. If zero persists, it's quality. If it moves, it was effort.<br><br><b>Pull call transcripts</b> (BQ India_call_transcripts) for conversation-level objection analysis.</div>
-<div class="si action"><div class="il">Structural</div><b>9-15 is the volume play</b> - 48% of total FDE revenue (₹28.1L), largest attendee pool (258), reliable conversion. Keep feeding this band.<br><br><b>16-20 is the efficiency play</b> - best attendee conversion (3.3%), best Connect→DCD (92%). Premium treatment on every lead.<br><br><b>Diversify 5-8 sourcing</b> away from T500. Non-T500 5-8 converts at 8.7% from Organic, Google Brand, Google NB, WhatsApp. Shift budget accordingly.</div>
-</div>
+</table></div></div>
+<div style="font-weight:700;font-size:13px;color:var(--nv);margin:18px 0 4px">Connected → Not Interested, by cohort</div>
+<div style="font-size:11px;color:var(--i2);margin-bottom:8px">Of the leads Sales actually spoke to, how many closed Not Interested and on what reason. The figure beside <b>No plan</b> is the mean total talk time of those calls, in minutes. Denominator: connected leads in that cohort.</div>
 <div class="cmp">
 <div class="cb" style="border-top-color:#8B5CF6"><div class="ch" style="color:#8B5CF6">3-5 · 25 conn</div><table><tr><td>Conn→NI</td><td>11/25 (44%)</td></tr><tr><td>No plan</td><td>8 · 9.8m</td></tr><tr><td>Pricing</td><td>3</td></tr><tr style="border-top:2px solid var(--rl)"><td><b>DCD→NI</b></td><td style="color:var(--red);font-weight:600">5/19 (26%)</td></tr></table></div>
 <div class="cb" style="border-top-color:#2563EB"><div class="ch" style="color:#2563EB">5-8 · 99 conn</div><table><tr><td>Conn→NI</td><td>52/99 (53%)</td></tr><tr><td>No plan</td><td>40 · 12.4m</td></tr><tr><td>Pricing</td><td>4</td></tr><tr style="border-top:2px solid var(--rl)"><td><b>DCD→NI</b></td><td style="color:var(--red);font-weight:600">32/64 (50%)</td></tr></table></div>
 <div class="cb" style="border-top-color:#059669"><div class="ch" style="color:#059669">9-15 · 161 conn</div><table><tr><td>Conn→NI</td><td>78/161 (48%)</td></tr><tr><td>No plan</td><td>65 · 15.2m</td></tr><tr><td>Pricing</td><td>7</td></tr><tr style="border-top:2px solid var(--rl)"><td><b>DCD→NI</b></td><td style="color:var(--red);font-weight:600">59/138 (43%)</td></tr></table></div>
 <div class="cb" style="border-top-color:#0D9488"><div class="ch" style="color:#0D9488">16-20 · 64 conn</div><table><tr><td>Conn→NI</td><td>24/64 (38%)</td></tr><tr><td>No plan</td><td>17 · 11.3m</td></tr><tr><td>Pricing</td><td>5</td></tr><tr style="border-top:2px solid var(--rl)"><td><b>DCD→NI</b></td><td style="color:var(--red);font-weight:600">20/59 (34%)</td></tr></table></div>
 <div class="cb" style="border-top-color:#065F46"><div class="ch" style="color:#065F46">20+ · 25 conn</div><table><tr><td>Conn→NI</td><td>12/25 (48%)</td></tr><tr><td>No plan</td><td>10 · 8.8m</td></tr><tr><td>Pricing</td><td>1</td></tr><tr style="border-top:2px solid var(--rl)"><td><b>DCD→NI</b></td><td style="color:var(--red);font-weight:600">8/22 (36%)</td></tr></table></div>
-</div></div>
-</div><div class="si-cards" style="position:static;flex-direction:row;flex-wrap:wrap;display:flex;gap:12px">
-<div style="flex:1;min-width:280px" class="si warn"><div class="sil">Watch out</div><b>"No plan" = 77% of NI.</b> Pricing is 2-6%.</div>
-<div style="flex:1;min-width:280px" class="si"><div class="sil">Takeaway</div><b>DCD→NI rate decreases consistently with seniority:</b> 5-8 at 50% (half of all DCDs go NI), 9-15 at 43%, 16-20 at 34%, 20+ at 36%. The pattern is clear - the more senior the lead, the better the discovery call sticks. This could be because senior engineers have clearer career intent, or because the FDE value proposition resonates more strongly with experienced professionals who understand the market shift toward AI-native roles.</div>
-<div style="flex:1;min-width:280px" class="si basis"><div class="sil">Basis</div>Objection analysis is based on disposition statuses of connected leads only - leads that never connected are excluded since their objections are unknown. For conversation-level analysis (what specific questions prospects ask, how Sales handles "No plan," whether pricing is proactively discussed or reactively objected to, discovery question coverage), VTT call transcripts from BigQuery <code>India_call_transcripts</code> table are required. This dataset does not contain transcript text.</div>
-</div></div><div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-channel"></div><div class="sec"><div class="sh"><h2>Channel Mix - T500 vs Non-T500</h2></div>
+</div>
+<div class="si-cards" style="position:static;flex-direction:row;flex-wrap:wrap;display:flex;gap:12px;margin-top:14px">
+<div style="flex:1;min-width:280px" class="si warn"><div class="sil">Watch out</div><b>"No plan" is 77% of all Not Interested closures.</b> Pricing is 2-6%.</div>
+<div style="flex:1;min-width:280px" class="si"><div class="sil">Takeaway</div><b>DCD→NI falls with seniority:</b> 5-8 at 50%, 9-15 43%, 16-20 34%, 20+ 36%. The more senior the lead, the better the discovery call holds.</div>
+<div style="flex:1;min-width:280px" class="si basis"><div class="sil">Basis</div>Disposition statuses of connected leads only. Never-connected leads are excluded - their objections are unknown.</div>
+</div>
+</div>
+<div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-channel"></div><div class="sec"><div class="sh"><span class="num">09</span><h2>Channel Mix - T500 vs Non-T500</h2></div>
 <div class="sdesc">T500 Connect→DCD is consistently lower. 5-8 T500 has 131 leads and zero FDE enrollments.</div>
 <table class="gt"><thead><tr><th></th><th style="color:#8B5CF6">3-5</th><th style="color:#2563EB">5-8</th><th style="color:#059669">9-15</th><th style="color:#0D9488">16-20</th><th style="color:#065F46">20+</th></tr></thead><tbody>
 <tr><td class="rl">T500 leads</td><td class="c">50</td><td class="c">131</td><td class="c">133</td><td class="c">46</td><td class="c">21</td></tr>
@@ -470,9 +458,9 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <div class="co red"><div class="dot" style="background:var(--red)"></div><b>5-8 T500: 131 leads, 0 FDE enrolled.</b> 5-8 non-T500: 46 leads, 4 FDE enrolled. The 5-8 underperformance is a T500 lead quality problem, not a YOE problem.</div>
 </div>
 </div><div class="si-cards">
-<div class="si flag"><div class="sil">Key finding</div><b>5-8 Talent 500: 131 leads and zero FDE enrollments.</b> 5-8 non-T500: 46 leads and 4 enrollments (8.7%) - the highest conversion rate of any cohort × channel combination with meaningful volume. All 4 of 5-8's FDE enrollments came from non-T500 channels: Organic, Google Brand, and Google NB. The 5-8 hypothesis isn't failing - it's being tested predominantly on T500 leads, which convert poorly across all cohorts. T500 Connect→DCD is 55% for 5-8 vs 92% for non-T500 5-8.</div>
-<div class="si basis"><div class="sil">Basis</div>Channel classification uses the <code>channel</code> field from the FDE Leads dataset. "T500" = Talent 500 and Talent 500 - FDE combined. "Non-T500" = all other channels (Organic, Google Brand, Google NB, Google YouTube, WhatsApp, Facebook, LinkedIn, Email, Other). The T500 underperformance pattern holds across all cohorts - not just 5-8 - but is most visible in 5-8 because 74% of their leads are T500-sourced vs 38-52% for senior bands.</div>
-</div></div><div id="sec-domain"></div><div class="sec"><div class="sh"><h2>Domain-Level Breakdown</h2><span class="tag">Connect→DCD by role domain × cohort</span></div>
+<div class="si flag"><div class="sil">Key finding</div><b>The 5-8 hypothesis was tested on a source that does not buy FDE.</b> T500: 131 leads, zero enrollments. Non-T500: 46 leads, 4 enrollments (8.7%) - the best cohort-channel combination in the dataset, all from Organic, Google Brand and Google NB.</div>
+<div class="si basis"><div class="sil">Basis</div>T500 = Talent 500 and Talent 500 - FDE. The underperformance holds in every cohort but shows up most in 5-8, where 74% of leads are T500-sourced against 38-52% for the senior bands.</div>
+</div></div><div class="chap"><span class="cl">Segments</span><span class="cr"></span></div><div id="sec-domain"></div><div class="sec"><div class="sh"><span class="num">10</span><h2>Domain-Level Breakdown</h2><span class="tag">Connect→DCD by role domain × cohort</span></div>
 <div style="background:#FEF2F2;border-left:3px solid var(--red);padding:8px 12px;margin:8px 0;font-size:11.5px"><b>Rows above 100% are a data artefact, not a real rate.</b> DCD is read from a CRM status field while Connected comes from call logs. Five rows here exceed 100% because leads carry a DCD tag with no logged two-way call - mostly carried forward from earlier programme cycles. Treat these rows as directional only.</div><table class="gt"><thead><tr><th style="text-align:left">Domain</th><th>Cohort</th><th>n</th><th>Connected</th><th>DCD</th><th>Conn→DCD</th><th>FDE Enrolled</th></tr></thead><tbody>
 <tr><td class="rl">Back-end</td><td class="c" style="color:#059669">9-15</td><td class="c">47</td><td class="c">31</td><td class="c">23</td><td class="c">74%</td><td class="c" style="color:var(--grn);font-weight:700">2</td></tr>
 <tr><td class="rl">Full Stack</td><td class="c" style="color:#0D9488">16-20</td><td class="c">12</td><td class="c">8</td><td class="c">7</td><td class="c" style="color:var(--grn)">88%</td><td class="c" style="color:var(--grn);font-weight:700">1</td></tr>
@@ -505,7 +493,7 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <tr><td class="rl">Machine Learning / AI</td><td class="c" style="color:#0D9488">16-20</td><td class="c">7</td><td class="c">3</td><td class="c">1</td><td class="c" style="color:var(--red)">33%</td><td class="c">0</td></tr>
 <tr><td class="rl">Other Software Engineers</td><td class="c" style="color:#065F46">20+</td><td class="c">3</td><td class="c">3</td><td class="c">0</td><td class="c" style="color:var(--red)">0%</td><td class="c">0</td></tr>
 </tbody></table></div>
-<div id="sec-journey"></div><div class="sec"><div class="sh"><h2>Lead Journey</h2><span class="tag">Median days from webinar · post-webinar only</span></div>
+<div id="sec-journey"></div><div class="sec"><div class="sh"><span class="num">11</span><h2>Lead Journey</h2><span class="tag">Median days from webinar · post-webinar only</span></div>
 <div style="background:var(--cd);border:1px solid var(--rl);border-radius:4px;padding:14px 16px">
 <div style="display:flex;gap:14px;margin-bottom:10px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--i3)"><span style="color:#8B5CF6">● 3-5</span><span style="color:#2563EB">● 5-8</span><span style="color:#059669">● 9-15</span><span style="color:#0D9488">● 16-20</span><span style="color:#065F46">● 20+</span></div>
 <div style="padding:7px 0;border-bottom:1px solid #F1F5F9"><div style="font-size:12px;font-weight:700;margin-bottom:3px">Last attempt <span style="font-weight:400;font-size:10.5px;color:var(--i2)">Most recent call attempt.</span></div>
@@ -544,7 +532,7 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <div style="display:flex;align-items:center;gap:6px;padding:1px 0"><span class="mono" style="font-size:9.5px;color:#065F46;width:40px">20+</span><div style="flex:1;height:12px;background:#F1F5F9;border-radius:2px;overflow:hidden"><div style="width:25.0%;height:100%;background:#065F46;border-radius:2px;opacity:0.7"></div></div><span class="mono" style="font-size:9.5px;font-weight:600;color:#065F46;min-width:72px">5.0d (n=1)</span></div>
 </div>
 </div></div>
-<div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-pve"></div><div class="sec"><div class="sh"><h2>Positive vs FDE Enrolled</h2><span class="tag">By cohort</span></div>
+<div class="si-wrap" style="grid-template-columns:1fr"><div><div id="sec-pve"></div><div class="sec"><div class="sh"><span class="num">12</span><h2>Positive vs FDE Enrolled</h2><span class="tag">By cohort</span></div>
 <div class="cmp">
 <div class="cb" style="border-top-color:#8B5CF6"><div class="ch" style="color:#8B5CF6">3-5</div><table><tr><td></td><td style="font-weight:600;color:var(--amb);font-size:10px">Pos</td><td style="font-weight:600;color:var(--grn);font-size:10px">Enr</td></tr><tr><td>n</td><td>9</td><td>-</td></tr><tr><td>Avg conn</td><td>1.4</td><td>-</td></tr><tr><td>Avg TT</td><td>14.2m</td><td>-</td></tr><tr><td>3+ conn</td><td>1</td><td>-</td></tr><tr><td>NO_COMMENTS</td><td style="color:var(--red)">5</td><td>0</td></tr></table></div>
 <div class="cb" style="border-top-color:#2563EB"><div class="ch" style="color:#2563EB">5-8</div><table><tr><td></td><td style="font-weight:600;color:var(--amb);font-size:10px">Pos</td><td style="font-weight:600;color:var(--grn);font-size:10px">Enr</td></tr><tr><td>n</td><td>30</td><td>4</td></tr><tr><td>Avg conn</td><td>1.6</td><td>3.2</td></tr><tr><td>Avg TT</td><td>16.4m</td><td>37.5m</td></tr><tr><td>3+ conn</td><td>5</td><td>3</td></tr><tr><td>NO_COMMENTS</td><td style="color:var(--red)">9</td><td>0</td></tr></table></div>
@@ -554,14 +542,13 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 </div></div>
 </div><div class="si-cards" style="position:static;flex-direction:row;flex-wrap:wrap;display:flex;gap:12px">
 <div style="flex:1;min-width:280px" class="si flag"><div class="sil">Flag</div><b>The positive pipeline looks healthy on paper (124 leads) but the engagement pattern is nothing like the 16 who enrolled.</b> Enrolled leads averaged 3.1 connects and 47 min total talk time with 67% having 3+ connects and zero having NO_COMMENTS classification. Today's positive leads average 1.5 connects and 17 min with only 14% having 3+ connects and 31% sitting at NO_COMMENTS. The pipeline is wide but shallow - volume without depth.</div>
-<div style="flex:1;min-width:280px" class="si"><div class="si warn"><div class="sil">Watch out</div><b>"No plan" is the dominant terminal state at 37-39% across all cohorts.</b> This is not a pricing problem - pricing objection is only 2-6% everywhere. The webinar is attracting people who are curious about FDE as a concept but are not actively looking to transition. They attend, they listen, they may even pick up when Sales calls - but they have no actionable career-change plan. This has implications for webinar targeting: consider qualifying for active career-transition signals (currently interviewing, applied to roles, updated resume) at registration.</div></li>
-<li><div><b>Gagan's team closes 22 of 27 (81%).</b> Nirbhay leads with 6 sales. Shamali and Priyanka at 4 each.</div></li>
-<li><div><b>Source diversification matters.</b> Top enrolled sources: Organic (4), WhatsApp (4), Facebook (4), Google NB (3), Google Brand (3). No single channel dominates. T500 contributes volume but not proportional conversion.</div></li>
-</ol></div>
+<div style="flex:1;min-width:280px" class="si warn"><div class="sil">Watch out</div><b>Gagan’s team closes 22 of the 27 sales (81%).</b> Nirbhay leads on 6, Shamali and Priyanka on 4 each. Concentration this high is a routing and key-person risk, not just a performance result.</div>
+<div style="flex:1;min-width:280px" class="si basis"><div class="sil">Basis</div><b>Enrolled sources spread wide:</b> Organic 4, WhatsApp 4, Facebook 4, Google NB 3, Google Brand 3. No single channel dominates the 27. T500 contributes volume without proportional conversion.</div>
+</div></div>
 
-<div id="sec-recovery"></div><div id="sec-tiers"></div>
-<div class="sec"><div class="sh"><h2>Lead Tiering - Top / Middle / Low</h2><span class="tag">564 leads scored from call content</span></div>
-<div class="sdesc">Every analysed lead was scored 0-100 across four dimensions extracted from its transcript: <b>intent</b> (40 pts - HIGH intent, active job switch, immediate urgency), <b>FDE fit</b> (25 pts - explicit interest, role fit), <b>engagement depth</b> (20 pts - detailed FDE discussion, pricing and ROI discussed) and <b>recoverability</b> (15 pts). P3 do-not-pursue and no-intent carry penalties. Thresholds: TOP 55+, MIDDLE 32-54, LOW below 32.<br><br><b>Validation:</b> 14 of the 15 enrolled leads land in TOP, and all 120 P3 do-not-pursue leads land in LOW. The score separates buyers from non-buyers without ever seeing the outcome - the model was blinded.</div>
+<div class="chap"><span class="cl">Verdict</span><span class="cr"></span></div><div id="sec-tiers"></div>
+<div class="sec"><div class="sh"><span class="num">13</span><h2>Lead Tiering - Top / Middle / Low</h2><span class="tag">564 leads scored from call content</span></div>
+<div class="sdesc">Scored 0-100 from the transcript: intent 40, FDE fit 25, engagement depth 20, recoverability 15, with penalties for P3 and no-intent. Thresholds TOP 55+, MIDDLE 32-54, LOW below 32. <b>Validation:</b> 14 of 15 enrolled leads land in TOP and all 120 do-not-pursue leads land in LOW, with the model blinded to outcome. Scored on 564 of the 582 - 18 rows carry no cohort label.</div>
 <div class="cmp" style="grid-template-columns:repeat(3,1fr)">
 <div class="cb" style="border-top-color:var(--grn)"><div class="ch" style="color:var(--grn)">TOP - 202 leads</div><div class="cv" style="color:var(--grn)">36%</div><div class="cd">Score 55+ - the buyer profile</div><table>
 <tr><td>Explicit FDE interest</td><td>91%</td></tr><tr><td>Active job switch</td><td>86%</td></tr><tr><td>Pricing discussed</td><td>74%</td></tr><tr><td>HIGH intent</td><td>39%</td></tr><tr><td>Strong role fit</td><td>36%</td></tr><tr><td>Recoverable</td><td>100%</td></tr><tr><td>Enrolled here</td><td>14 of 15</td></tr></table></div>
@@ -588,19 +575,19 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <div class="insight" style="flex:1;min-width:230px;border-left:4px solid var(--nv);border-radius:0 4px 4px 0"><div class="body"><div class="il" style="color:var(--nv)">The signal</div><b>TOP tier spreads evenly across cohorts</b> - 5-8 has 52, 9-15 has 98, 16-20 has 31. Quality buyers exist in every band. The tier predicts conversion far better than the YOE cohort does.</div></div>
 </div></div>
 <div id="sec-summary"></div>
-<div class="sec"><div class="sh"><h2>Summary - Key Observations</h2></div>
-<div class="sdesc"><b>Scope:</b> 3-5 YOE is attendees only. All other cohorts include the full connected population. 661 attendees in the funnel view, 582 transcripts in the call view, 16 FDE enrolled within attendee scope, 27 FDE sales in total across all funnels.</div>
+<div class="sec"><div class="sh"><span class="num">14</span><h2>Summary - Key Observations</h2></div>
+<div class="sdesc">661 attendees in the funnel view, 582 transcripts in the call view, 16 FDE enrollments in attendee scope out of 27 total sales.</div>
 <ol class="obs">
-<li><div><b>47% of revenue leakage is Sales process, not lead quality or offer.</b> Demand quality accounts for 45%, offer only 9%. Within the positive pipeline, Sales process rises to 52%. The leads showed up; the follow-through did not.</div></li>
-<li><div><b>77% of all calls end without a next step</b> and 47% carry an unresolved objection. Only 11% of objections get resolved on the call. Enrolled leads had a next step 80% of the time. This is the single most consistent gap across every cohort, channel and segment.</div></li>
-<li><div><b>5-8 and 9-15 are nearly identical on call quality.</b> Intent, FDE interest, leakage split and role fit all sit within five percentage points. The one real gap is objection resolution: 7% for 5-8 versus 16% for 9-15.</div></li>
-<li><div><b>The 5-8 shortfall is a channel problem.</b> 5-8 Talent 500: 131 leads, zero FDE enrollments. 5-8 non-T500: 46 leads, 4 enrollments (8.7%). All four came from Organic, Google Brand and Google NB. In transcripts, T500 5-8 calls reach pricing 33% of the time versus 54% for non-T500.</div></li>
-<li><div><b>The positive pipeline does not behave like buyers.</b> Pricing discussed 54% versus 87% for enrolled, next step 28% versus 80%, immediate urgency 13% versus 60%. The weekly pipeline number overstates real intent.</div></li>
-<li><div><b>Lead tiering separates buyers cleanly.</b> 202 TOP, 157 MIDDLE, 205 LOW. 14 of 15 enrolled leads score TOP; all 120 do-not-pursue leads score LOW. 68 TOP-tier leads are currently sitting in NOT_INTERESTED - they were given up on too early.</div></li>
-<li><div><b>231 leads are recoverable now</b> (14 P0 call-now plus 217 P1 follow-up), with 213 more on nurture. Only 120 are genuinely dead. 72% of everything analysed is conditionally recoverable.</div></li>
-<li><div><b>Intent, not price, is the terminal blocker.</b> "No plan" accounts for 37-39% of connected leads; pricing objection is 2-6%. Top objection themes: pricing 24%, coding concern 17%, AI/ML overlap 15%, ROI 13%, seniority 11%.</div></li>
+<li><div><b>47% of leakage is Sales process</b>, against 45% demand quality and 9% offer - rising to 52% inside the positive pipeline.</div></li>
+<li><div><b>81% of calls end without a next step</b> and 47% carry an unresolved objection. Enrolled leads had a next step 80% of the time. The most consistent gap in the dataset.</div></li>
+<li><div><b>5-8 and 9-15 are near-identical on call quality</b> - every dimension within five points except objection resolution, 7% against 16%.</div></li>
+<li><div><b>The 5-8 shortfall is a channel problem.</b> T500: 131 leads, zero enrollments. Non-T500: 46 leads, 4 enrollments (8.7%). T500 calls reach pricing 33% of the time against 54%.</div></li>
+<li><div><b>The positive pipeline does not behave like buyers.</b> Pricing 54% vs 87%, next step 28% vs 80%, urgency 13% vs 60%. The weekly number overstates real intent.</div></li>
+<li><div><b>Tiering separates buyers cleanly.</b> 202 TOP / 157 MIDDLE / 205 LOW, with 14 of 15 enrolled in TOP. <b>68 TOP-tier leads sit in Not Interested</b> - written off too early.</div></li>
+<li><div><b>231 leads are recoverable now</b> - 14 P0 and 217 P1, plus 213 on nurture. Only 120 are genuinely dead.</div></li>
+<li><div><b>Intent, not price, is the terminal blocker.</b> "No plan" is 37-39% of connected leads; pricing objection is 2-6%.</div></li>
 </ol></div>
-<div class="sec"><div class="sh"><h2>Next Steps</h2></div>
+<div id="sec-next"></div><div class="sec"><div class="sh"><span class="num">15</span><h2>Next Steps</h2></div>
 <div class="act"><h3>Immediate</h3><ol>
 <li><b>Mandate 2nd/3rd connect on positive leads within 48 hours.</b> 50% have one call. Enrolled needed 3+.</li>
 <li><b>Tag every positive lead.</b> 31% have NO_COMMENTS.</li>
@@ -610,20 +597,158 @@ FDE-only versus all-programme by cohort: 5-8 is 2.3% vs 2.8% - 9-15 is 2.7% vs 5
 <li><b>Investigate 5-8 T500 lead quality.</b> 131 leads, 0 FDE enrolled. Compare T500 5-8 vs non-T500 5-8 DCD transcripts.</li>
 <li><b>Test 3-5 with equal effort.</b> 8 attempts/lead for 2 webinars.</li>
 <li><b>Pull call transcripts (BQ India_call_transcripts)</b> for conversation-level objection analysis.</li>
-</ol></div></div><div class="sec"><div id="sec-definitions"></div><details><summary>Definitions & Filters</summary><div class="def-grid"><div class="dbox" style="border-left:3px solid var(--amb)"><h4 style="color:var(--amb)">Data quality caveats</h4><table>
-<tr><td>DCD definition</td><td>Currently DCD_Flag = 1 only. 84 attendees have this flag with zero logged connects; 56 have a pre-webinar DCD_Date. Clean definition would be DCD_Flag = 1 AND Connected = 1, which drops DCD from 340 to 256 and brings every Connect-to-DCD rate under 100%.</td></tr>
-<tr><td>Enrolled</td><td>All figures FDE-only (27 confirmed sales). All-programme rate is 5.6% vs 2.4% FDE-only. 21 attendees enrolled in other IK programmes; 16 of those have a blank course field.</td></tr>
-<tr><td>Transcript coverage</td><td>582 of 591 leads. 9 dropped by the batch process, not recovered.</td></tr>
-<tr><td>Call date cutoff</td><td>Transcripts cover calls from 27 July 2026 onward only. Pre-webinar history from earlier cycles is out of scope by design.</td></tr>
-<tr><td>3-5 cohort scope</td><td>Attendees only (26 transcripts). Its 0.0% reflects 20% never dialled and 3.9 attempts per lead, so it is not a clean cohort verdict.</td></tr>
-</table></div>
-<div class="dbox"><h4>Cohorts</h4><table>
-<tr><td style="color:#8B5CF6">3-5</td><td>work_ex="3-4" → 55</td></tr><tr><td style="color:#2563EB">5-8</td><td>work_ex="5-8" → 177</td></tr>
-<tr><td style="color:#059669">9-15</td><td>work_ex="9-15" → 258</td></tr><tr><td style="color:#0D9488">16-20</td><td>work_ex="16-20" → 121</td></tr><tr><td style="color:#065F46">20+</td><td>work_ex="20+" → 50</td></tr>
-</table></div><div class="dbox"><h4>Key definitions</h4><table>
-<tr><td>Reached</td><td>≥1 call attempt by Sales. NOT phone rang.</td></tr><tr><td>Connected</td><td>≥1 two-way call.</td></tr>
-<tr><td>FDE Enrolled</td><td>HubSpot ID matches FDE sales tracker (27 confirmed). FDE program only - EdgeUp/LevelUp/TPM excluded.</td></tr>
-<tr><td>Positive</td><td>DCD+FU+Interested. Enrolled excluded.</td></tr></table></div></div></details></div></div><script>
+</ol></div></div><div class="chap"><span class="cl">Reference</span><span class="cr"></span></div><div class="sec"><div id="sec-definitions"></div>
+<div class="sh"><span class="num">16</span><h2>Definitions &amp; Formula Logic</h2><span class="tag">every metric, its formula, and its denominator</span></div>
+<div class="sdesc">Several labels in this dashboard appear in more than one section with a different formula behind them. Read the collision table before reproducing any number elsewhere.</div>
+
+<div class="defsec">
+
+<div class="defblk">
+<h4>A · The three populations</h4>
+<p class="dh">Not every section runs on the same rows. Check which population a number came from before comparing it to another.</p>
+<table class="dt">
+<thead><tr><th style="width:112px">Population</th><th style="width:52px">n</th><th>Built from</th><th style="width:190px">Used in</th></tr></thead>
+<tbody>
+<tr><td>Attendees</td><td class="mono">661</td><td>Attended one of the four webinars with a valid YOE band. Deduplicated to one row per HubSpot ID, preferring the attended row, then the latest webinar date.</td><td>§2 Funnel, §3 Sales effort, §4 Step conversion, §5 Lead status, §9 T500 mix, §10 Domain, §11 Journey, §12 Positive vs enrolled</td></tr>
+<tr><td>Transcripts</td><td class="mono">582</td><td><code>Connected = 1</code> with an original VTT transcript. Includes non-attendees for 5-8, 9-15, 16-20 and 20+. 3-5 is attendees only (26 rows).</td><td>§6 Call analysis, §7 Channel quality</td></tr>
+<tr><td>Tiered leads</td><td class="mono">564</td><td>The 582 minus 18 rows that carry no YOE cohort label. Those 18 are real leads with live statuses, not junk.</td><td>§13 Lead tiering</td></tr>
+</tbody></table>
+<div class="dnote"><b>Why §6 says 582 and §13 says 564.</b> The 18 dropped rows have no cohort, so they cannot appear in a cohort-split table. They include 6 at Discovery call done and 4 at Call me later - if you work the tiering list, they are not in it.</div>
+</div>
+
+<div class="defblk">
+<h4>B · Same label, different number</h4>
+<p class="dh">Three labels carry two definitions each. This is the most common source of a wrong number leaving this dashboard.</p>
+<table class="dt">
+<thead><tr><th style="width:88px">Label</th><th>§2 Funnel Movement reads</th><th>§5 Lead Status reads</th></tr></thead>
+<tbody>
+<tr><td>DCD</td><td><code>DCD_Flag = 1</code> → <b>302</b> attendees (45.7%)</td><td><code>lead_status = 'Discovery call done'</code> → <b>113</b> attendees (17.1%)</td></tr>
+<tr><td>RTE</td><td><code>RTE_Flag = 1</code> → <b>73</b> attendees, shown as a companion row under Positive. <span class="warn">Not a subset - see flag 5.</span></td><td>No standalone bucket. <code>'Interested-Ready to enroll'</code> and <code>'Follow Up'</code> (11 attendees) are merged into Positive %.</td></tr>
+<tr><td>Positive</td><td>DCD + Follow Up + Interested flags, Enrolled excluded → <b>126</b> attendees</td><td>Discovery call done + Follow Up + Ready to enroll statuses → <b>124</b> attendees. The 2-lead gap sits in 9-15.</td></tr>
+<tr><td class="warn">Enrolled</td><td>HubSpot ID matched to the FDE sales tracker → <b>16</b> attendees, <b>2.4%</b>. FDE programme only.</td><td><code>lead_status = 'Enrolled'</code> → <b>37</b> attendees, <b>5.6%</b>. Every IK programme.</td></tr>
+</tbody></table>
+<div class="dnote">A CRM status is a person’s stage; a flag is a recorded event. They were never reconciled. When a number is quoted without saying which, assume the reader will pick the larger one. Suggested field names at source: <code>FDE_Conversion_Rate</code> and <code>Webinar_Total_Conversion_Rate</code>.</div>
+</div>
+
+<div class="defblk">
+<h4>C · Funnel stage formulas · §2 and §4</h4>
+<table class="dt">
+<thead><tr><th style="width:150px">Stage</th><th style="width:250px">Formula</th><th>Denominator</th></tr></thead>
+<tbody>
+<tr><td>Attendees</td><td>attended = 1, valid YOE band</td><td>– (this is the base)</td></tr>
+<tr><td>Reached</td><td><code>total_attempt ≥ 1</code></td><td>cohort attendees. Means Sales dialled, not that the phone rang.</td></tr>
+<tr><td>Connected</td><td><code>total_connect ≥ 1</code></td><td>cohort attendees. A two-way conversation.</td></tr>
+<tr><td>Meaningful call</td><td>talk time &gt; 120s</td><td>cohort attendees. <span class="warn">Exceeds Connected in every cohort - see flag 3.</span></td></tr>
+<tr><td>Discovery call done</td><td><code>DCD_Flag = 1</code></td><td>cohort attendees. <span class="warn">Inflated - see flag 1.</span></td></tr>
+<tr><td>Positive pipeline</td><td>DCD + Follow Up + Interested, Enrolled excluded</td><td>cohort attendees</td></tr>
+<tr><td>Ready to Enroll</td><td><code>RTE_Flag = 1</code></td><td>cohort attendees</td></tr>
+<tr><td>FDE Enrolled</td><td>HubSpot ID in the FDE sales tracker (27 confirmed sales)</td><td>cohort attendees. EdgeUp, LevelUp, TPM and other IK programmes excluded.</td></tr>
+</tbody></table>
+<div class="dnote">§4 divides each stage by the one above it rather than by attendees, so Reached→Connected is <code>connected ÷ reached</code>, not <code>connected ÷ attendees</code>.</div>
+</div>
+
+<div class="defblk">
+<h4>D · Sales effort formulas · §3</h4>
+<p class="dh">Every per-lead average is over <b>all cohort attendees</b>, including leads that were never dialled. It is not over reached leads and not over connected leads. A cohort with many undialled leads therefore reads low even when the leads that were dialled got long calls.</p>
+<table class="dt">
+<thead><tr><th style="width:190px">Metric</th><th style="width:280px">Formula</th><th>Denominator</th></tr></thead>
+<tbody>
+<tr><td>Pre-webinar attempts/lead</td><td><code>Σ pre_webinar_attempt ÷ n</code></td><td>all cohort attendees</td></tr>
+<tr><td>Post-webinar attempts/lead</td><td><code>Σ post_webinar_attempt ÷ n</code></td><td>all cohort attendees</td></tr>
+<tr><td>Connects/lead</td><td><code>Σ connects ÷ n</code></td><td>all cohort attendees</td></tr>
+<tr><td>Talk time (min)</td><td><code>Σ talk time ÷ n</code></td><td>all cohort attendees</td></tr>
+<tr><td class="warn">Connect rate %</td><td><code>Σ connects ÷ Σ attempts</code></td><td><b>attempts, not leads.</b> Do not read it as the share of leads connected - that is the Connected row in §2. 3-5 shows 45.5% connected in §2 and 16.0% connect rate in §3; both are correct and they measure different things.</td></tr>
+<tr><td>Meaningful call rate %</td><td>meaningful calls ÷ n</td><td>all cohort attendees</td></tr>
+<tr><td>Post-web coverage %</td><td>leads with ≥ 1 post-webinar attempt ÷ n</td><td>all cohort attendees</td></tr>
+<tr><td>Zero attempts</td><td><code>total_attempt = 0</code></td><td>all cohort attendees</td></tr>
+<tr><td>Enrolled benchmark</td><td>the same formulas, run over the enrolled leads</td><td>the 16 FDE-enrolled attendees. A 16-lead base - read it as a profile, not a target with confidence behind it.</td></tr>
+</tbody></table>
+</div>
+
+<div class="defblk">
+<h4>E · Lead status map · §5</h4>
+<p class="dh">Each bucket is a set of exact CRM <code>lead_status</code> strings, divided by cohort attendees. This is the mapping the Excel formula applies.</p>
+<table class="dt">
+<thead><tr><th style="width:250px">CRM lead_status</th><th style="width:150px">Bucket shown</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>New</td><td>New %</td><td></td></tr>
+<tr><td>New-Call me later</td><td>New %</td><td>the largest component, 84 leads</td></tr>
+<tr><td>New-Non contact</td><td>New %</td><td>also shown on its own line</td></tr>
+<tr><td>New-Step 2 Funnel Exit</td><td>New %</td><td></td></tr>
+<tr><td>Not interested-No plan</td><td>Junk + NI %</td><td>broken out as NI - No Plan, 241 leads</td></tr>
+<tr><td>Not interested-Pricing</td><td>Junk + NI %</td><td>broken out as NI - Pricing, 22 leads</td></tr>
+<tr><td>Not Interested-No Response</td><td>Junk + NI %</td><td>19 leads</td></tr>
+<tr><td>Not interested-Unsuitable profile</td><td>Junk + NI %</td><td>22 leads</td></tr>
+<tr><td>Junk</td><td>Junk + NI %</td><td><b>folded into the Unsuitable line</b>, 21 leads. Unsuitable therefore reads 43, not 22.</td></tr>
+<tr><td>Discovery call done</td><td>Positive %</td><td>this status only - not <code>DCD_Flag</code>. 113 leads.</td></tr>
+<tr><td>Follow Up</td><td>Positive %</td><td>merged · Ready to enroll is a state inside Positive, not a stage after it</td></tr>
+<tr><td>Interested-Ready to enroll</td><td>Positive %</td><td>merged · 11 leads with Follow Up combined</td></tr>
+<tr><td class="warn">Interested-Enroll Later</td><td class="warn">no bucket</td><td><b>Not displayed anywhere.</b> 7 leads, 1.1%. It belongs in Positive on the same logic as Ready to enroll, but <code>derived.json</code> only splits it three ways (3-5, 5-8, 9+), so it cannot be placed per cohort or per webinar. This is why the §5 columns sum to roughly 99% rather than 100%.</td></tr>
+<tr><td class="warn">Enrolled</td><td>Enrolled %</td><td><b>All IK programmes, not FDE.</b> 37 leads, 5.6%. The FDE-only figure is 16, 2.4%.</td></tr>
+</tbody></table>
+</div>
+
+<div class="defblk">
+<h4>F · Call diagnostic · §6 and §7</h4>
+<table class="dt">
+<thead><tr><th style="width:190px">Field</th><th>Definition</th></tr></thead>
+<tbody>
+<tr><td>Blinding</td><td>The model read each transcript without the lead’s cohort or outcome. Labels were joined back in the BI layer afterwards. Any rerun of this prompt must preserve the blinding or the comparison becomes circular.</td></tr>
+<tr><td>Source</td><td>Original VTT only. CRM notes, PA call logs and paraphrased recaps were rejected. Calls from 27 July 2026 onward.</td></tr>
+<tr><td>Leakage attribution</td><td>An objection raised and not addressed is <code>SALES_PROCESS</code>. <code>OFFER_PRODUCT</code> requires evidence a resolution was attempted and rejected. Without this rule every unresolved pricing objection reads as a pricing problem when it is a follow-up problem.</td></tr>
+<tr><td>Percentages in §6</td><td>Share of transcripts in that cohort, not of attendees. Bases: 3-5 n=26, 5-8 n=159, 9-15 n=242, 16-20 n=101, 20+ n=36.</td></tr>
+<tr><td>Tier score</td><td>Intent 40 (HIGH intent 20, active switch 10, immediate urgency 10) + FDE fit 25 (explicit interest 12, strong role fit 13, weak fit -8) + engagement depth 20 (detailed discussion 7, pricing 7, ROI 6) + recoverability 15. Penalties: P3 -20, no intent -15. TOP 55+, MIDDLE 32-54, LOW below 32.</td></tr>
+</tbody></table>
+</div>
+
+<div class="defblk">
+<h4>G · Cohort bands</h4>
+<table class="dt">
+<thead><tr><th style="width:88px">Band</th><th style="width:150px">Filter</th><th style="width:80px">Attendees</th><th>Transcripts</th></tr></thead>
+<tbody>
+<tr><td style="color:#8B5CF6">3-5</td><td><code>work_ex = "3-4"</code></td><td class="mono">55</td><td class="mono">26 · attendees only</td></tr>
+<tr><td style="color:#2563EB">5-8</td><td><code>work_ex = "5-8"</code></td><td class="mono">177</td><td class="mono">159</td></tr>
+<tr><td style="color:#059669">9-15</td><td><code>work_ex = "9-15"</code></td><td class="mono">258</td><td class="mono">242</td></tr>
+<tr><td style="color:#0D9488">16-20</td><td><code>work_ex = "16-20"</code></td><td class="mono">121</td><td class="mono">101</td></tr>
+<tr><td style="color:#065F46">20+</td><td><code>work_ex = "20+"</code></td><td class="mono">50</td><td class="mono">36</td></tr>
+</tbody></table>
+<div class="dnote">Never rolled up to "9+". The five bands are reported separately throughout.</div>
+</div>
+
+<div class="defblk">
+<h4>H · Data quality flags</h4>
+<div class="flagrow">
+<div class="fid f-red">FLAG 1</div>
+<div><b>Connect-to-DCD is inflated.</b> DCD comes from a CRM status field, Connected from call logs, so they do not share a denominator. 84 attendees carry <code>DCD_Flag = 1</code> with zero logged two-way calls; 56 of those have a <code>DCD_Date</code> predating their webinar, carried forward from an earlier programme cycle. This produces the five rows above 100% in §10.<br>
+Current figures show a 27 point gap between 5-8 (65%) and 16-20 (92%). The clean definition <code>DCD_Flag = 1 AND Connected = 1</code> gives 55% and 62% - a 7 point gap, and drops DCD from 340 to 256. Clean rates: 3-5 60%, 5-8 55%, 9-15 68%, 16-20 62%, 20+ 52%. <b>Do not quote the 27 point gap externally.</b> Applying the clean definition weakens the cohort story and strengthens the execution story.<br>
+<i>Fix at source:</i> stamp <code>DCD_Date</code> only on a call logged after the current webinar, or add a <code>DCD_source</code> field so carried-forward tags stay distinguishable.</div>
+
+<div class="fid f-red">FLAG 2</div>
+<div><b>Two Enrolled numbers exist.</b> Every figure outside §5 is FDE-only. By cohort, FDE-only against all-programme: 5-8 2.3% vs 2.8%, 9-15 2.7% vs 5.8%, 16-20 3.3% vs 9.9%, 20+ 2.0% vs 10.0%, overall 2.4% vs 5.6%. The 21 non-FDE enrollments are mostly Transformative GenAI and AgenticAI variants; 16 of them have a blank <code>course</code> field and cannot be verified from the sheet. <b>Never place both rates on one chart without labels.</b><br>
+<i>Worth a separate look:</i> 16-20 converts at 9.9% across all programmes but 3.3% into FDE. That band is buying, just not buying FDE.</div>
+
+<div class="fid f-amb">FLAG 3</div>
+<div><b>Meaningful calls exceed connects in every cohort.</b> 3-5 29 vs 25, 5-8 128 vs 99, 9-15 187 vs 161, 16-20 80 vs 64, 20+ 33 vs 25. A call over two minutes should be a subset of a connect, so this is the same denominator mismatch as flag 1 - talk-time records against a call-log flag. Treat the meaningful-call rate as directional and do not compute a meaningful-calls-per-connect ratio from it.</div>
+
+<div class="fid f-amb">FLAG 4</div>
+<div><b><code>cube5.json</code> carries a stale enrollment count.</b> Its <code>enr</code> field totals 21 (3-5 0, 5-8 4, 9-15 10, 16-20 4, 20+ 3) against the 16 shown here, and the per-webinar splits differ. The dashboard tables are correct and were updated after the FDE-only reconciliation; the JSON was not. Rebuild enrollment from the sales tracker, not from <code>cube5.json</code>. <code>derived.json</code> also holds only three cohort keys (3-5, 5-8, 9+), so §5’s five-band split cannot be reproduced from it directly.</div>
+
+<div class="fid f-amb">FLAG 5</div>
+<div><b><code>RTE_Flag</code> is historical and is not a subset of Positive.</b> Of the 67 RTE-flagged leads in the transcript set, only 21 currently sit in POSITIVE. 26 are in NOT_INTERESTED, 12 in ENROLLED_OTHER, 7 in ENROLLED and 1 in OPEN_STUCK. The flag records that a lead reached Ready to Enroll at some point and survives a later status change, so it cannot be added into Positive as a count without double-counting leads that have since moved on. §5 merges the Ready to enroll <i>status</i> into Positive, which is clean; §2 keeps the <i>flag</i> as a labelled companion row.<br><i>Fix at source:</i> keep <code>RTE_Flag</code> for history and add a current-stage field, or stamp <code>RTE_cleared_date</code> when a lead leaves the stage.</div>
+
+<div class="fid f-gry">SCOPE</div>
+<div>582 of 591 transcripts analysed - 9 were dropped by the batch process and not recovered. 3-5 is attendees only, and its 0.0% reflects 20% never dialled at 3.9 attempts per lead, so it is not a clean cohort verdict. Transcripts cover calls from 27 July 2026 onward; earlier cycles are out of scope by design.</div>
+
+<div class="fid f-gry">ASP</div>
+<div>₹55.9L booked across the 27 confirmed FDE sales gives an ASP of ₹2.07L. The only band with its own revenue line in this package is 9-15 - ₹28.1L on 13 sales, ASP ₹2.16L. The remaining 14 sales (5-8 6, 16-20 6, 20+ 2) account for ₹27.8L, a blended ASP of ₹1.99L; they cannot be split further without <code>India_Leads.Sales_Analysis</code>. ASP is computed on all 27 sales, not the 16 inside attendee scope, so it does not share a denominator with the conversion rates.<br>USD equivalents on the §1 cards are display conversions at ₹95.4 = $1 (mid-market, late August 2026): booked revenue $58,595, ASP $2,170 overall, $2,266 for 9-15, $2,082 blended for the other bands. Nothing is booked in USD. Note that the standing content rule in the handover is INR only - the dollar line is here by request and the Word and Excel deliverables still carry INR alone.</div>
+
+<div class="fid f-gry">SOURCE</div>
+<div>FDE Leads sheet, BigQuery <code>ik-marketing-data.India_Leads.FDE_India_live_sheet</code>, plus the FDE sales tracker. Data as of 24 August 2026. The sheet has no <code>hubspot_id</code> column - the column named <code>lead_email</code> holds the HubSpot ID. Should be fixed at source.</div>
+</div>
+</div>
+
+</div>
+</div></div><script>
 function setMode(mode,btn){document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('active'));
 if(btn)btn.classList.add('active');else document.querySelector('.tbtn[data-mode="'+mode+'"]').classList.add('active');
 document.querySelectorAll('td.c[data-n]').forEach(td=>{if(mode==='n')td.textContent=td.dataset.n;else if(mode==='p')td.textContent=td.dataset.p;else td.textContent=td.dataset.b;});}
